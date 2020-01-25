@@ -1,0 +1,4 @@
+﻿@media print{
+    *{color:#000}
+    body{direction:rtl;margin:10px 40px}
+}

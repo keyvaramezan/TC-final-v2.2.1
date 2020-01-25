@@ -1,0 +1,793 @@
+﻿/*body{background: url('../images/bg.jpg') repeat top left;}*/
+/*body{background-color:#183026;background-image: url(../images/overlay.png),url(../images/bg.jpg);background-repeat:repeat,no-repeat;background-size:auto,cover;background-position:top left,center 0;background-attachment:fixed,fixed;}*/
+@font-face {
+    font-family: Vazir;
+    src: url('../fonts/vaziri/vazir.eot');
+    src: url('../fonts/vaziri/vazir.eot?#iefix') format('embedded-opentype'), url('../fonts/vaziri/vazir.woff') format('woff'), url('../fonts/vaziri/vazir.ttf') format('truetype');
+    font-weight: normal;
+}
+
+@media print {
+    .printBtn {
+        display: none
+    }
+}
+
+
+body {
+    background-color: #e5e5e5;
+    background: url(../images/bgg.svg);
+    background-size: cover;
+    background-position: top;
+}
+
+body {
+    font-family: vazir;
+    font-size: 11px;
+    margin: 0;
+    padding: 0;
+    color: #fff
+}
+
+html {
+    overflow: hidden
+}
+
+p {
+    clear: both;
+    padding: 0;
+    margin: 0;
+    font-size: 14px
+}
+
+input {
+    border: 1px solid #605d5e;
+    height: 15px;
+    background-color: transparent;
+    color: #605d5e;
+    font-family: Vazir;
+    font-size: 130%;
+    padding: 3px 2px 0 0
+}
+
+:focus {
+    outline: -webkit-focus-ring-color auto 0px !important;
+}
+
+select {
+    border: 1px solid #605d5e;
+    font-size: 100%;
+    padding: 2px 5px;
+    background-color: transparent;
+    color: #605d5e;
+    width: 102.6%;
+    font-family: vazir
+}
+
+.fas {
+    color: #605d5e
+}
+
+.content {
+    direction: rtl;
+    position: relative;
+    margin: 0 auto;
+    padding: 0
+}
+
+.contLogin .logo {
+    width: 40%;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 0;
+    transform: translate(0%, -50%);
+}
+
+.logo {
+    width: 100%;
+    text-align: center
+}
+
+    .logo img {
+        width: 60%
+    }
+
+.contA .logo {
+    margin-bottom: 6em
+}
+
+    .contA .logo img {
+        width: 60%;
+        max-width: 180px
+    }
+
+.logotxt {
+    text-align: center;
+    position: relative
+}
+
+    .logotxt p {
+        font-size: 148%;
+        font-weight: bold;
+        text-align: center
+    }
+
+        .logotxt p:last-child {
+            margin: 0;
+            padding: 3px 0;
+            font-size: 200%
+        }
+
+    .logotxt .out {
+        position: absolute;
+        top: 27px;
+        left: -179px;
+        font-size: 12px;
+        color: #d43f3a
+    }
+
+        .logotxt .out a {
+            color: #d43f3a;
+            text-decoration: none
+        }
+
+#sectionA, #sectionB, #sectionC, #sectionD, #login {
+    margin: auto;
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative
+}
+
+.sectionContent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+
+.content_A {
+    width: 60%;
+    background-color: #e5e5e5
+}
+
+.effect {
+    width: 60vw;
+    min-height: 560px;
+    height: 60vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+
+.contA, .contB, .contC, .contD, .contLogin {
+    width: 60vw;
+    min-height: 560px;
+    height: 60vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 30px;
+    background: #FCBD10 url(../images/sp-down.png) repeat-x bottom;
+}
+
+.contBackground {
+    min-height: 100%;
+    min-width: 100%;
+    padding: 0;
+    margin: 0;
+    background-image: url(../images/sp-up.png);
+    background-position: top center;
+    background-size: contain;
+    background-repeat: repeat-x;
+    position: relative;
+    border-radius: 30px
+}
+
+.effect {
+    -moz-border-radius: 30px;
+    -webkit-border-radius: 30px;
+    border-radius: 30px;
+    -khtml-border-radius: 30px;
+    background-color: #FCBD10;
+    background-size: contain;
+    background-position: bottom center;
+    background-repeat: repeat-x
+}
+
+    .effect:before, .effect:after {
+        z-index: -1;
+        position: absolute;
+        content: "";
+        bottom: 26px;
+        left: 60px;
+        width: 50%;
+        top: 80%;
+        max-width: 400px;
+        background: #777;
+        -webkit-box-shadow: 0 35px 20px rgba(119, 119, 119, 0.77);
+        -moz-box-shadow: 0 35px 20px rgba(119, 119, 119, 0.77);
+        box-shadow: 0 35px 20px rgba(119, 119, 119, 0.77);
+        -webkit-transform: rotate(-7deg);
+        -moz-transform: rotate(-7deg);
+        -o-transform: rotate(-7deg);
+        -ms-transform: rotate(-7deg);
+        transform: rotate(-7deg);
+    }
+
+    .effect:after {
+        -webkit-transform: rotate(7deg);
+        -moz-transform: rotate(7deg);
+        -o-transform: rotate(7deg);
+        -ms-transform: rotate(7deg);
+        transform: rotate(7deg);
+        right: 40px;
+        left: auto;
+    }
+
+.mid {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+
+.login {
+    width: 60%;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(0%,-50%);
+    height: 100%;
+    min-height: 564px;
+    background-color: #fff;
+    border-radius: 0 30px 30px 0
+}
+
+.logintext {
+    width: 55%;
+    height: 70%
+}
+
+    .logintext p {
+        font-size: 210%;
+        color: #605d5e;
+        font-weight: bold;
+        padding: 30px 0;
+    }
+
+.loginUP {
+    border-bottom: 1px #605d5e solid;
+    height: 3.2em;
+}
+
+.formfield {
+    border-bottom: 1px #fff solid;
+    height: 3.5em;
+    width: 37.1%;
+    margin: 35px auto 0;
+    padding: 0 3px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.formedit {
+    position: relative;
+    width: 38%;
+    margin: 0 auto
+}
+
+.arang {
+    margin-bottom: 60px
+}
+
+.sectionContent:hover {
+    border: 1px solid rgba(256,256,256,0.3);
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4)
+}
+/*.select{width:28.7vw}*/
+.inputlogin {
+    width: 95%;
+    height: 2em;
+    border: none
+}
+
+    .inputlogin:active, .inputlogin:focus {
+        border: none !important;
+        outline-offset: 0 !important
+    }
+
+.dirl {
+    direction: ltr
+}
+
+.allbox {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.allboxB {
+    width: 70%;
+    float: left;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+}
+
+.allboxC {
+    width: 90%;
+    margin: 0 auto
+}
+
+.allboxD {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.allboxB p {
+    margin: 1vh 0 2vh;
+    font-size: 174%;
+}
+
+.allboxC p {
+    margin: 0 0 1vh;
+    font-size: 174%;
+}
+
+.allboxB .lbl {
+    margin: 1vh auto;
+    width: 41vw;
+    height: 3vh;
+    line-height: 24px;
+    background: rgb(29, 79, 108);
+    height: 3vh;
+}
+
+    .allboxB .lbl span {
+        text-align: center;
+        color: #13dfe0
+    }
+
+.side {
+    position: relative;
+    float: right;
+    width: 30%;
+    height: 100%;
+    min-height: 564px;
+    background-color: rgba(255,255,255,0.3);
+    border-radius: 0 30px 30px 0
+}
+
+    .side .logo {
+        transform: translate(0, -50%);
+        position: absolute;
+        top: 50%;
+    }
+
+.box {
+    display: flex;
+    justify-content: center;
+    padding: 0.75vh 0
+}
+
+    .box .lbl1 {
+        width: 29.5vw;
+        text-align: left;
+        font-size: 120%;
+        color: #1e4f6c
+    }
+
+    .box .val1 {
+        width: 2vw;
+        text-align: center;
+        margin: 0 3px
+    }
+
+        .box .val1 span {
+            font-size: 17px;
+            line-height: 21px;
+            color: #e01f26
+        }
+
+    .box .val2 {
+        width: 30vw;
+        text-align: right;
+        padding: 0 10px;
+        overflow: hidden
+    }
+
+    .box .control {
+        width: 30vw
+    }
+
+    .box input {
+        width: 100%
+    }
+
+.btn {
+    position: relative;
+    margin-top: 2.5%
+}
+
+#sectionC .btnchange {
+    margin-top: 0 !important
+}
+
+.btn input, .btn .btnlink, .btn a {
+    width: 10vw;
+    height: 41px;
+    direction: rtl;
+    font-family: Vazir;
+    font-size: 12px;
+    color: #fff;
+    background: #164967;
+    border: none;
+    line-height: 24px;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0.32)), to(rgba(255,255,255,0)));
+    background-image: -webkit-linear-gradient(top, rgba(255,255,255,0.32), rgba(255,255,255,0));
+    background-image: -moz-linear-gradient(top, rgba(255,255,255,0.32), rgba(255,255,255,0));
+    background-image: -ms-linear-gradient(top, rgba(255,255,255,0.32), rgba(255,255,255,0));
+    background-image: -o-linear-gradient(top, rgba(255,255,255,0.32), rgba(255,255,255,0));
+    background-image: linear-gradient(top, rgba(255,255,255,0.32), rgba(255,255,255,0));
+    -webkit-transition: background-color .4s ease-out;
+    -moz-transition: background-color .4s ease-out;
+    -ms-transition: background-color .4s ease-out;
+    -o-transition: background-color .4s ease-out;
+    transition: background-color .4s ease-out;
+    background-clip: padding-box; /* Fix bleeding */
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+    -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, .3), 0 2px 2px -1px rgba(0, 0, 0, .5), 0 1px 0 rgba(255, 255, 255, .3) inset;
+    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, .3), 0 2px 2px -1px rgba(0, 0, 0, .5), 0 1px 0 rgba(255, 255, 255, .3) inset;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, .3), 0 2px 2px -1px rgba(0, 0, 0, .5), 0 1px 0 rgba(255, 255, 255, .3) inset;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.9);
+}
+
+#btnLogin {
+    width: 13vw;
+    height: 51px;
+    direction: rtl;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    background: #fcbd10;
+    border: none;
+    line-height: 23px;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0.32)), to(rgba(255,255,255,0)));
+    background-image: -webkit-linear-gradient(top, rgba(255,255,255,0.32), rgba(255,255,255,0));
+    background-image: -moz-linear-gradient(top, rgba(255,255,255,0.32), rgba(255,255,255,0));
+    background-image: -ms-linear-gradient(top, rgba(255,255,255,0.32), rgba(255,255,255,0));
+    background-image: -o-linear-gradient(top, rgba(255,255,255,0.32), rgba(255,255,255,0));
+    background-image: linear-gradient(top, rgba(255,255,255,0.32), rgba(255,255,255,0));
+    -webkit-transition: background-color .4s ease-out;
+    -moz-transition: background-color .4s ease-out;
+    -ms-transition: background-color .4s ease-out;
+    -o-transition: background-color .4s ease-out;
+    transition: background-color .4s ease-out;
+    background-clip: padding-box; /* Fix bleeding */
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
+    border-radius: 25px;
+    -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, .3), 0 2px 2px -1px rgba(0, 0, 0, .5), 0 1px 0 rgba(255, 255, 255, .3) inset;
+    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, .3), 0 2px 2px -1px rgba(0, 0, 0, .5), 0 1px 0 rgba(255, 255, 255, .3) inset;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, .3), 0 2px 2px -1px rgba(0, 0, 0, .5), 0 1px 0 rgba(255, 255, 255, .3) inset;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.9);
+}
+
+.btn input:hover, .btn .btnlink:hover, .btn a:hover {
+    background-color: #eee;
+    color: #555;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.9);
+}
+
+.sebtn {
+    border: none;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    font-size: 20px;
+    width: 35px;
+    height: 36px;
+    float: left;
+    cursor: pointer
+}
+
+.out {
+    position: fixed;
+    top: 5px;
+    left: 5px;
+    height: 50px;
+    width: 50px;
+    background-color: rgba(224, 31, 37, 0.47);
+    line-height: 44px;
+    text-align: center;
+    cursor: pointer;
+    z-index: 1000;
+    text-decoration: none;
+    color: #fff
+}
+
+    .out a {
+        text-decoration: none;
+        color: #fff;
+        cursor: pointer
+    }
+
+#txtfindTenderName {
+    width: 86%;
+    float: right;
+    color: #484848
+}
+
+
+.gridvlist, .gridv {
+    margin: 0.5vh auto;
+    border: 1px solid #605d5e;
+    max-width: 80vw;
+    max-height: 20vh;
+    overflow: auto
+}
+
+    .gridvlist > div:first-of-type {
+        max-height: 11.5vh
+    }
+
+    .gridv > div:first-of-type {
+        max-height: 15vh
+    }
+
+.gridtxt td {
+    padding: 3px 5px 6px 5px
+}
+
+.scrol::-webkit-scrollbar {
+    width: 10px;
+}
+
+.scrol::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 0px;
+    height: 50px
+}
+
+.scrol::-webkit-scrollbar-track {
+}
+
+#GrdComponies {
+    width: 100%
+}
+
+.gridheader {
+    padding: 5px;
+    background: #4c5851;
+    color: #fff;
+    font-size: 90%;
+    font-weight: normal
+}
+
+.gridname, .gridItem, .gridComment {
+    line-height: 28px;
+    padding: 1px 8px;
+    font-size: 80%
+}
+
+.blnk {
+    width: 15px;
+    height: 5px
+}
+
+#grdTenderProperties {
+    width: 100%
+}
+
+.editf {
+    width: auto
+}
+
+
+.chzn-container .chzn-results {
+    color: #333 !important;
+}
+
+.k-autocomplete.k-state-default, .k-dropdown-wrap.k-state-default, .k-numeric-wrap.k-state-default, .k-picker-wrap.k-state-default {
+    border-color: #605d5e !important
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
+    width: 50%
+}
+
+
+/*  REPORT  */
+.report-container {
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    position: relative
+}
+
+.report {
+    width: 80%;
+    background-color: #f9f9f9;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 10%);
+    border-radius: 30px;
+    border: 1px dashed #4c5851
+}
+
+.report-list p {
+    text-align: center;
+    color: #4c5851;
+    font-size: 200%;
+    padding: 20px 0;
+    font-weight: bold
+}
+
+.report-desc {
+    font-size: 160%;
+    text-align: center;
+    color: #4c5851;
+    margin-bottom: 2vh
+}
+
+.report-grid {
+    width: 95%;
+    margin: 0 auto;
+    background-color: #e4e4e4;
+    color: #4c5851
+}
+
+.report-grid {
+    -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.37);
+    -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.37);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.37);
+    direction: rtl
+}
+
+.report-exp {
+    text-align: center;
+    margin: 0 auto;
+    font-size: 110%;
+    margin-top: 4vh;
+    position: relative;
+    direction: rtl;
+}
+
+    .report-exp div {
+        padding: 10px;
+        background-color: #e4e4e4;
+        width: 94%;
+        margin: 0 auto;
+    }
+
+.printBtn {
+    text-align: center
+}
+
+    .printBtn img {
+        width: 50px;
+        border: 10px solid #4c5851;
+        border-radius: 50px;
+        padding: 10px;
+        background-color: #4c5851;
+        margin: 3.5vh 0 2vh;
+        box-shadow: 0 0 10px;
+        cursor: pointer
+    }
+
+
+
+
+
+@media (max-width:1024px) {
+    .logotxt p:first-child {
+        font-size: 87%
+    }
+
+    .logotxt p:last-child {
+        font-size: 162%
+    }
+
+    .fa-3x {
+        font-size: 2em !important
+    }
+
+    .loginUP {
+        height: 2.2em
+    }
+
+    .inputlogin {
+        height: 1.2em
+    }
+
+    .contA, .contB, .contC, .contD, .contLogin, .effect {
+        min-height: 460px !important;
+        height: 60vh
+    }
+
+    .login {
+        min-height: 460px !important
+    }
+
+    .logintext p {
+        font-size: 150%
+    }
+
+    .arang {
+        margin-bottom: 40px
+    }
+
+    .contA .logo img {
+        max-width: 153px
+    }
+
+    .contA .logo {
+        margin-bottom: 4em
+    }
+
+    .btn input, .btn .btnlink, .btn a {
+        width: 11vw;
+        height: 30px
+    }
+
+    .formfield {
+        height: 2.3em
+    }
+
+    #txtfindTenderName {
+        width: 82%;
+        height: 1.5em
+    }
+
+    .sebtn {
+        height: 1.4em;
+        font-size: 16px
+    }
+
+    .side {
+        position: relative;
+        width: 22%;
+        min-height: 460px
+    }
+
+        .side .logo img {
+            width: 97%;
+        }
+
+        .side .logotxt p:first-child {
+            font-size: 76%;
+        }
+
+        .side .logotxt p:last-child {
+            font-size: 128%;
+        }
+
+    .allboxB {
+        padding: 20px 0;
+        width: 78%;
+    }
+
+        .allboxB p, .allboxC p, .allboxD p {
+            font-size: 120%
+        }
+
+    .box {
+        padding: 6px 0;
+    }
+
+        .box .lbl1 {
+            font-size: 90%;
+        }
+}

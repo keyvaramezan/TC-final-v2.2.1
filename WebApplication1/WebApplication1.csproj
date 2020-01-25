@@ -1,0 +1,425 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FFE46770-B054-4280-A153-CDFE6D6CC1E8}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TenderComp</RootNamespace>
+    <AssemblyName>TenderComp</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+    <UseGlobalApplicationHostFile />
+    <TypeScriptToolsVersion>1.7</TypeScriptToolsVersion>
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.Fakes, Version=5.0.0.0, Culture=neutral, PublicKeyToken=0ae41878053f6703, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel.DomainServices.EntityFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\bootstrap\css\bootstrap.min.css" />
+    <Content Include="assets\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="assets\bootstrap\js\bootstrap.min.js" />
+    <Content Include="assets\css\animate.min.css" />
+    <Content Include="assets\css\effects.css" />
+    <Content Include="assets\css\magnific-popup.css" />
+    <Content Include="assets\css\responsive.css" />
+    <Content Include="assets\css\style.css" />
+    <Content Include="assets\css\YTPlayer.css" />
+    <Content Include="assets\fonts\font-awesome.min.css" />
+    <Content Include="assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\images\bg\bg.jpg" />
+    <Content Include="assets\images\bg\bg2.jpg" />
+    <Content Include="assets\images\me.jpg" />
+    <Content Include="assets\images\work\1.jpg" />
+    <Content Include="assets\images\work\2.jpg" />
+    <Content Include="assets\images\work\3.jpg" />
+    <Content Include="assets\images\work\4.jpg" />
+    <Content Include="assets\images\work\5.jpg" />
+    <Content Include="assets\images\work\6.jpg" />
+    <Content Include="assets\js\app.js" />
+    <Content Include="assets\js\form-contact.js" />
+    <Content Include="assets\js\jquery.magnific-popup.min.js" />
+    <Content Include="assets\js\jquery.mb.YTPlayer.min.js" />
+    <Content Include="assets\js\jquery.min.js" />
+    <Content Include="assets\js\jquery.mixitup.js" />
+    <Content Include="assets\js\jquery.stellar.min.js" />
+    <Content Include="assets\js\particles.min.js" />
+    <Content Include="assets\js\scripts.js" />
+    <Content Include="assets\js\wow.min.js" />
+    <Content Include="assets\owlcarousel\css\owl.carousel.css" />
+    <Content Include="assets\owlcarousel\css\owl.theme.css" />
+    <Content Include="assets\owlcarousel\js\owl.carousel.min.js" />
+    <Content Include="Content\bootstrap-rtl.min.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="css\all.min.css" />
+    <Content Include="css\chosen.css" />
+    <Content Include="css\custom-theme\images\animated-overlay.gif" />
+    <Content Include="css\custom-theme\images\lst_bg.png" />
+    <Content Include="css\custom-theme\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="css\custom-theme\images\ui-bg_flat_100_3b5998_40x100.png" />
+    <Content Include="css\custom-theme\images\ui-bg_flat_100_edf0f5_40x100.png" />
+    <Content Include="css\custom-theme\images\ui-bg_flat_55_5c9ccc_40x100.png" />
+    <Content Include="css\custom-theme\images\ui-bg_flat_55_fbee98_40x100.png" />
+    <Content Include="css\custom-theme\images\ui-bg_flat_55_fcee92_40x100.png" />
+    <Content Include="css\custom-theme\images\ui-bg_flat_85_5f89e3_40x100.png" />
+    <Content Include="css\custom-theme\images\ui-bg_glass_75_6eb9f2_1x400.png" />
+    <Content Include="css\custom-theme\images\ui-bg_glass_75_d0e5f5_1x400.png" />
+    <Content Include="css\custom-theme\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="css\custom-theme\images\ui-bg_gloss-wave_55_5c9ccc_500x100.png" />
+    <Content Include="css\custom-theme\images\ui-bg_highlight-hard_85_a1d3fc_1x100.png" />
+    <Content Include="css\custom-theme\images\ui-bg_loop_100_e6efef_21x21.png" />
+    <Content Include="css\custom-theme\images\ui-bg_spotlight_100_0764ab_16x16.png" />
+    <Content Include="css\custom-theme\images\ui-icons_217bc0_256x240.png" />
+    <Content Include="css\custom-theme\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="css\custom-theme\images\ui-icons_469bdd_256x240.png" />
+    <Content Include="css\custom-theme\images\ui-icons_6da8d5_256x240.png" />
+    <Content Include="css\custom-theme\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="css\custom-theme\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="css\custom-theme\images\ui-icons_f6f5f4_256x240.png" />
+    <Content Include="css\custom-theme\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="css\custom-theme\jquery-ui-1.10.1.custom.css" />
+    <Content Include="css\custom-theme\jquery-ui-1.10.1.custom.min.css" />
+    <Content Include="css\example.css" />
+    <Content Include="css\fa\all.css" />
+    <Content Include="css\fa\all.min.css" />
+    <Content Include="css\fa\brands.css" />
+    <Content Include="css\fa\brands.min.css" />
+    <Content Include="css\fa\fontawesome.css" />
+    <Content Include="css\fa\fontawesome.min.css" />
+    <Content Include="css\fa\regular.css" />
+    <Content Include="css\fa\regular.min.css" />
+    <Content Include="css\fa\solid.css" />
+    <Content Include="css\fa\solid.min.css" />
+    <Content Include="css\fa\svg-with-js.css" />
+    <Content Include="css\fa\svg-with-js.min.css" />
+    <Content Include="css\fa\v4-shims.css" />
+    <Content Include="css\fa\v4-shims.min.css" />
+    <Content Include="css\jquery.page.css" />
+    <Content Include="css\jquery.steps.css" />
+    <Content Include="css\kendo.common.min.css" />
+    <Content Include="css\kendo.default.min.css" />
+    <Content Include="css\main.css" />
+    <Content Include="css\multi.css" />
+    <Content Include="css\normalize.css" />
+    <Content Include="css\page.css" />
+    <Content Include="css\print.css" />
+    <Content Include="css\st.css" />
+    <Content Include="css\StyleSheet.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="EnterComponies.aspx" />
+    <Content Include="enterTender.aspx" />
+    <Content Include="fonts\Dejavu\DejaVu Fonts License.txt" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="images\bg - Copy.jpg" />
+    <Content Include="images\bg.jpg" />
+    <Content Include="images\bg.svg" />
+    <Content Include="images\bgg.svg" />
+    <Content Include="images\overlay.png" />
+    <Content Include="images\printer.png" />
+    <Content Include="images\sp-down.png" />
+    <Content Include="images\sp-up.png" />
+    <Content Include="images\sp.png" />
+    <Content Include="images\sprite.png" />
+    <Content Include="login.aspx" />
+    <Content Include="logout.aspx" />
+    <Content Include="modern\index.htm" />
+    <Content Include="modern\js\jquery-1.9.1.min.js" />
+    <Content Include="modern\js\jquery.easing.min.js" />
+    <Content Include="print.aspx" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Scripts\jquery-2.1.1-vsdoc.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-2.1.1.js" />
+    <Content Include="Scripts\jquery-2.1.1.min.js" />
+    <Content Include="Scripts\npm.js" />
+    <Content Include="Smooth\jquery.page.css" />
+    <Content Include="Smooth\jquery.page.js" />
+    <Content Include="Smooth\jquery.page.min.js" />
+    <Content Include="Smooth\sample\app.css" />
+    <Content Include="Smooth\sample\app.js" />
+    <Content Include="Smooth\sample\index.html" />
+    <Content Include="sprite.png" />
+    <Content Include="src\bootstrap.min.js" />
+    <Content Include="src\chosen.jquery.js" />
+    <Content Include="src\fa-IR.js" />
+    <Content Include="src\JalaliDate.js" />
+    <Content Include="src\jquery-1.9.1.js" />
+    <Content Include="src\jquery-ui-1.10.1.custom.js" />
+    <Content Include="src\jquery.cookie-1.3.1.js" />
+    <Content Include="src\jquery.min.1.8.js" />
+    <Content Include="src\jquery.searchabledropdown-1.0.8.min.js" />
+    <Content Include="src\jquery.steps.js" />
+    <Content Include="src\kendo.calendarshamsi.js" />
+    <Content Include="src\kendo.datepickershamsi.js" />
+    <Content Include="src\kendo.web.js" />
+    <Content Include="src\modernizr-2.6.2.min.js" />
+    <Content Include="src\multi.js" />
+    <Content Include="src\jquery-1.9.1.min.js" />
+    <Content Include="src\jquery.easing.min.js" />
+    <Content Include="src\jquery.page.js" />
+    <Content Include="src\jquery.page.min.js" />
+    <Content Include="src\page.js" />
+    <Content Include="src\searchableDRP.js" />
+    <Content Include="Default.aspx" />
+    <Fakes Include="Fakes\EntityFramework.SqlServer.fakes" />
+    <Fakes Include="Fakes\EntityFramework.fakes" />
+    <EntityDeploy Include="TenderComputDBEntities1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TenderComputDBEntities1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="images\bg.png" />
+    <Content Include="images\front.png" />
+    <Content Include="images\horizon.png" />
+    <Content Include="images\middle.png" />
+    <Content Include="libs\jquery.min.js" />
+    <Content Include="src\jquery.jInvertScroll.js" />
+    <Content Include="TenderComputDBEntities1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TenderComputDBEntities1.edmx</DependentUpon>
+      <LastGenOutput>TenderComputDBEntities1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="TenderComputDBEntities1.edmx.diagram">
+      <DependentUpon>TenderComputDBEntities1.edmx</DependentUpon>
+    </Content>
+    <Content Include="TenderComputDBEntities1.edmx.sql" />
+    <Content Include="TenderComputDBEntities1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TenderComputDBEntities1.edmx</DependentUpon>
+      <LastGenOutput>TenderComputDBEntities1.cs</LastGenOutput>
+    </Content>
+    <Content Include="packages.config" />
+    <Content Include="fonts\Dejavu\DejaVuSans-Bold.ttf" />
+    <Content Include="fonts\Dejavu\DejaVuSans-BoldOblique.ttf" />
+    <Content Include="fonts\Dejavu\DejaVuSans-ExtraLight.ttf" />
+    <Content Include="fonts\Dejavu\DejaVuSans-Oblique.ttf" />
+    <Content Include="fonts\Dejavu\DejaVuSans.ttf" />
+    <Content Include="fonts\Dejavu\DejaVuSansCondensed-Bold.ttf" />
+    <Content Include="fonts\Dejavu\DejaVuSansCondensed-BoldOblique.ttf" />
+    <Content Include="fonts\Dejavu\DejaVuSansCondensed-Oblique.ttf" />
+    <Content Include="fonts\Dejavu\DejaVuSansCondensed.ttf" />
+    <Content Include="fonts\Dejavu\DejaVuSansMono-Bold.ttf" />
+    <Content Include="fonts\Dejavu\DejaVuSansMono-BoldOblique.ttf" />
+    <Content Include="fonts\Dejavu\DejaVuSansMono-Oblique.ttf" />
+    <Content Include="fonts\Dejavu\DejaVuSansMono.ttf" />
+    <Content Include="fonts\Dejavu\DejaVuSerif-Bold.ttf" />
+    <Content Include="fonts\Dejavu\DejaVuSerif-BoldItalic.ttf" />
+    <Content Include="fonts\Dejavu\DejaVuSerif-Italic.ttf" />
+    <Content Include="fonts\Dejavu\DejaVuSerif.ttf" />
+    <Content Include="fonts\Dejavu\DejaVuSerifCondensed-Bold.ttf" />
+    <Content Include="fonts\Dejavu\DejaVuSerifCondensed-BoldItalic.ttf" />
+    <Content Include="fonts\Dejavu\DejaVuSerifCondensed-Italic.ttf" />
+    <Content Include="fonts\Dejavu\DejaVuSerifCondensed.ttf" />
+    <Content Include="assets\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="assets\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="assets\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="assets\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="assets\fonts\fontawesome-webfont-1.eot" />
+    <Content Include="assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="assets\php\contact.php" />
+    <None Include="Properties\PublishProfiles\TenderComp.pubxml" />
+    <Content Include="Scripts\jquery-2.1.1.min.map" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TenderMng.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EnterComponies.aspx.cs">
+      <DependentUpon>EnterComponies.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EnterComponies.aspx.designer.cs">
+      <DependentUpon>EnterComponies.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="enterTender.aspx.cs">
+      <DependentUpon>enterTender.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="enterTender.aspx.designer.cs">
+      <DependentUpon>enterTender.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InfraStructure\DateConvertor.cs" />
+    <Compile Include="InfraStructure\Enums.cs" />
+    <Compile Include="InfraStructure\Utility.cs" />
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="logout.aspx.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="logout.aspx.designer.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="print.aspx.cs">
+      <DependentUpon>print.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="print.aspx.designer.cs">
+      <DependentUpon>print.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="tblCompony.cs">
+      <DependentUpon>TenderComputDBEntities1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblTender.cs">
+      <DependentUpon>TenderComputDBEntities1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblUser.cs">
+      <DependentUpon>TenderComputDBEntities1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TenderComputDBEntities1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TenderComputDBEntities1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TenderComputDBEntities1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TenderComputDBEntities1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TenderComputDBEntities1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TenderComputDBEntities1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TenderMng.aspx.cs">
+      <DependentUpon>TenderMng.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TenderMng.aspx.designer.cs">
+      <DependentUpon>TenderMng.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SecuredPages\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>8058</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:8058/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

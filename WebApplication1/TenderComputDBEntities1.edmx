@@ -1,0 +1,317 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TenderComputDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblComponies">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ComponyName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Price" Type="float" />
+          <Property Name="IsAccept" Type="bit" />
+          <Property Name="X" Type="float" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="80" />
+          <Property Name="t" Type="float" />
+          <Property Name="L" Type="float" />
+          <Property Name="IeDiff" Type="float" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="TenderID" Type="int" />
+          <Property Name="IsWin" Type="bit" />
+          <Property Name="CurrencyPrice" Type="float" />
+          <Property Name="RialiPrice" Type="float" />
+        </EntityType>
+        <EntityType Name="tblTenders">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenderNo" Type="int" />
+          <Property Name="TenderType" Type="bit" />
+          <Property Name="Currency" Type="int" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="t" Type="float" />
+          <Property Name="Estimate" Type="float" />
+          <Property Name="Fguaranty" Type="float" />
+          <Property Name="i" Type="float" />
+          <Property Name="TenderDate" Type="datetime" />
+          <Property Name="CurrencyPrice" Type="float" />
+          <Property Name="Quorum" Type="float" />
+          <Property Name="Average2" Type="float" />
+          <Property Name="Variance" Type="float" />
+          <Property Name="UpperLimit" Type="float" />
+          <Property Name="BottomLimit" Type="float" />
+          <Property Name="TenderName" Type="nvarchar" MaxLength="100" />
+          <Property Name="CurrencyEstimate" Type="float" />
+          <Property Name="RialiEstimate" Type="float" />
+          <Property Name="Average" Type="float" />
+        </EntityType>
+        <EntityType Name="tblUsers">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fname" Type="nvarchar" MaxLength="50" />
+          <Property Name="lname" Type="nvarchar" MaxLength="50" />
+          <Property Name="username" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_tblComponies_tblTenders">
+          <End Role="tblTenders" Type="Self.tblTenders" Multiplicity="0..1" />
+          <End Role="tblComponies" Type="Self.tblComponies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblTenders">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tblComponies">
+              <PropertyRef Name="TenderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblComponies_Users">
+          <End Role="tblUsers" Type="Self.tblUsers" Multiplicity="0..1" />
+          <End Role="tblComponies" Type="Self.tblComponies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUsers">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tblComponies">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTenders_Users">
+          <End Role="tblUsers" Type="Self.tblUsers" Multiplicity="0..1" />
+          <End Role="tblTenders" Type="Self.tblTenders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUsers">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tblTenders">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TenderComputDBModelStoreContainer">
+          <EntitySet Name="tblComponies" EntityType="Self.tblComponies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblTenders" EntityType="Self.tblTenders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUsers" EntityType="Self.tblUsers" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tblComponies_tblTenders" Association="Self.FK_tblComponies_tblTenders">
+            <End Role="tblTenders" EntitySet="tblTenders" />
+            <End Role="tblComponies" EntitySet="tblComponies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblComponies_Users" Association="Self.FK_tblComponies_Users">
+            <End Role="tblUsers" EntitySet="tblUsers" />
+            <End Role="tblComponies" EntitySet="tblComponies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTenders_Users" Association="Self.FK_tblTenders_Users">
+            <End Role="tblUsers" EntitySet="tblUsers" />
+            <End Role="tblTenders" EntitySet="tblTenders" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TenderComputDBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="TenderComputDBEntities1" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="tblUsers" EntityType="TenderComputDBModel.tblUser" />
+          <EntitySet Name="tblTenders" EntityType="TenderComputDBModel.tblTender" />
+          <AssociationSet Name="FK_tblTenders_Users" Association="TenderComputDBModel.FK_tblTenders_Users">
+            <End Role="tblUser" EntitySet="tblUsers" />
+            <End Role="tblTender" EntitySet="tblTenders" />
+          </AssociationSet>
+          <EntitySet Name="tblComponies" EntityType="TenderComputDBModel.tblCompony" />
+          <AssociationSet Name="FK_tblComponies_tblTenders" Association="TenderComputDBModel.FK_tblComponies_tblTenders">
+            <End Role="tblTender" EntitySet="tblTenders" />
+            <End Role="tblCompony" EntitySet="tblComponies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblComponies_Users" Association="TenderComputDBModel.FK_tblComponies_Users">
+            <End Role="tblUser" EntitySet="tblUsers" />
+            <End Role="tblCompony" EntitySet="tblComponies" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="tblUser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="fname" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="lname" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="username" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Password" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblTenders" Relationship="TenderComputDBModel.FK_tblTenders_Users" FromRole="tblUser" ToRole="tblTender" />
+          <NavigationProperty Name="tblComponies" Relationship="TenderComputDBModel.FK_tblComponies_Users" FromRole="tblUser" ToRole="tblCompony" />
+        </EntityType>
+        <EntityType Name="tblTender">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenderNo" Type="Int32" />
+          <Property Name="TenderType" Type="Boolean" />
+          <Property Name="Currency" Type="Int32" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="t" Type="Double" />
+          <Property Name="Estimate" Type="Double" />
+          <Property Name="Fguaranty" Type="Double" />
+          <Property Name="i" Type="Double" />
+          <Property Name="TenderDate" Type="DateTime" Precision="3" />
+          <Property Name="CurrencyPrice" Type="Double" />
+          <Property Name="Quorum" Type="Double" />
+          <Property Name="Average" Type="Double" />
+          <Property Name="Variance" Type="Double" />
+          <Property Name="UpperLimit" Type="Double" />
+          <Property Name="BottomLimit" Type="Double" />
+          <Property Name="TenderName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblUser" Relationship="TenderComputDBModel.FK_tblTenders_Users" FromRole="tblTender" ToRole="tblUser" />
+          <NavigationProperty Name="tblComponies" Relationship="TenderComputDBModel.FK_tblComponies_tblTenders" FromRole="tblTender" ToRole="tblCompony" />
+          <Property Name="CurrencyEstimate" Type="Double" />
+          <Property Name="RialiEstimate" Type="Double" />
+          <Property Name="Average2" Type="Double" />
+        </EntityType>
+        <Association Name="FK_tblTenders_Users">
+          <End Type="TenderComputDBModel.tblUser" Role="tblUser" Multiplicity="0..1" />
+          <End Type="TenderComputDBModel.tblTender" Role="tblTender" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUser">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tblTender">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tblCompony">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ComponyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Double" />
+          <Property Name="IsAccept" Type="Boolean" />
+          <Property Name="X" Type="Double" />
+          <Property Name="Comment" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="t" Type="Double" />
+          <Property Name="L" Type="Double" />
+          <Property Name="IeDiff" Type="Double" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="TenderID" Type="Int32" />
+          <Property Name="IsWin" Type="Boolean" />
+          <Property Name="CurrencyPrice" Type="Double" />
+          <Property Name="RialiPrice" Type="Double" />
+          <NavigationProperty Name="tblTender" Relationship="TenderComputDBModel.FK_tblComponies_tblTenders" FromRole="tblCompony" ToRole="tblTender" />
+          <NavigationProperty Name="tblUser" Relationship="TenderComputDBModel.FK_tblComponies_Users" FromRole="tblCompony" ToRole="tblUser" />
+        </EntityType>
+        <Association Name="FK_tblComponies_tblTenders">
+          <End Type="TenderComputDBModel.tblTender" Role="tblTender" Multiplicity="0..1" />
+          <End Type="TenderComputDBModel.tblCompony" Role="tblCompony" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblTender">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tblCompony">
+              <PropertyRef Name="TenderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblComponies_Users">
+          <End Type="TenderComputDBModel.tblUser" Role="tblUser" Multiplicity="0..1" />
+          <End Type="TenderComputDBModel.tblCompony" Role="tblCompony" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUser">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tblCompony">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TenderComputDBModelStoreContainer" CdmEntityContainer="TenderComputDBEntities1">
+    <EntitySetMapping Name="tblUsers">
+      <EntityTypeMapping TypeName="IsTypeOf(TenderComputDBModel.tblUser)">
+        <MappingFragment StoreEntitySet="tblUsers">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="fname" ColumnName="fname" />
+          <ScalarProperty Name="lname" ColumnName="lname" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblTenders">
+      <EntityTypeMapping TypeName="IsTypeOf(TenderComputDBModel.tblTender)">
+        <MappingFragment StoreEntitySet="tblTenders">
+                <ScalarProperty Name="Average2" ColumnName="Average2" />
+                <ScalarProperty Name="RialiEstimate" ColumnName="RialiEstimate" />
+                <ScalarProperty Name="CurrencyEstimate" ColumnName="CurrencyEstimate" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TenderNo" ColumnName="TenderNo" />
+          <ScalarProperty Name="TenderType" ColumnName="TenderType" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="t" ColumnName="t" />
+          <ScalarProperty Name="Estimate" ColumnName="Estimate" />
+          <ScalarProperty Name="Fguaranty" ColumnName="Fguaranty" />
+          <ScalarProperty Name="i" ColumnName="i" />
+          <ScalarProperty Name="TenderDate" ColumnName="TenderDate" />
+          <ScalarProperty Name="CurrencyPrice" ColumnName="CurrencyPrice" />
+          <ScalarProperty Name="Quorum" ColumnName="Quorum" />
+          <ScalarProperty Name="Average" ColumnName="Average" />
+          <ScalarProperty Name="Variance" ColumnName="Variance" />
+          <ScalarProperty Name="UpperLimit" ColumnName="UpperLimit" />
+          <ScalarProperty Name="BottomLimit" ColumnName="BottomLimit" />
+          <ScalarProperty Name="TenderName" ColumnName="TenderName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblComponies">
+      <EntityTypeMapping TypeName="IsTypeOf(TenderComputDBModel.tblCompony)">
+        <MappingFragment StoreEntitySet="tblComponies">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ComponyName" ColumnName="ComponyName" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="IsAccept" ColumnName="IsAccept" />
+          <ScalarProperty Name="X" ColumnName="X" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="t" ColumnName="t" />
+          <ScalarProperty Name="L" ColumnName="L" />
+          <ScalarProperty Name="IeDiff" ColumnName="IeDiff" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="TenderID" ColumnName="TenderID" />
+          <ScalarProperty Name="IsWin" ColumnName="IsWin" />
+          <ScalarProperty Name="CurrencyPrice" ColumnName="CurrencyPrice" />
+          <ScalarProperty Name="RialiPrice" ColumnName="RialiPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

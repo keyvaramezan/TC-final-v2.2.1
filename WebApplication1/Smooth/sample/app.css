@@ -1,0 +1,12 @@
+
+
+.screen {}
+.screen .page {}
+.screen .page[data-jquery-page-name='01'] {background-color: red;}
+.screen .page[data-jquery-page-name='02'] {background-color: purple;}
+.screen .page[data-jquery-page-name='03'] {background-color: green;}
+.screen .page[data-jquery-page-name='04'] {background-color: blue;}
+.screen .page[data-jquery-page-name='XX'] {background-color: orange;}
+.screen .page .title {}
+.screen .page .navigate {}
+
