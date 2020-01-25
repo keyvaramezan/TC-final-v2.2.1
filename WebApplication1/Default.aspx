@@ -142,7 +142,7 @@
                                 <asp:TextBox ID="txtfindTenderName" runat="server" autocomplete="off" CssClass="inputlogin dirl" />
                                 <asp:Button runat="server" ID="btnFindTenderNo" OnClick="btnFindTenderNo_OnClick" Text="" CssClass="sebtn fa" />
                             </div>
-                            <%--<p>برای ویرایش لطفا شماره مناقصه را انتخاب نمایید</p>--%>
+                            <%--<p>برای ویرایش لطفا شماره مناقصه را انتخاب نمایید.</p>--%>
                             <div class="formedit">
                                 <asp:DropDownList placeholder="Choose a Country..." runat="server" ID="ddlTenderno" class="chzn-select" Style="width: 100%">
                                     <asp:ListItem Text=""></asp:ListItem>
