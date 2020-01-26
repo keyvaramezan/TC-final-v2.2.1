@@ -339,7 +339,7 @@
                                     <input type="button" class="scroll_button" value="مرحله بعد" onclick="scroll_to_div('sectionC')" />
                                 </div>
                                 <div runat="server" class="lbl" id="divSuccess" visible="False">
-                                    <asp:Label runat="server" Text="اطلاعات شما با موفقیت ثبت گردید" ID="lblSuccess"></asp:Label>
+                                    <asp:Label runat="server" ID="lblSuccess"></asp:Label>
 
                                 </div>
                             </div>
