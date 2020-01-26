@@ -6,7 +6,7 @@
 <head runat="server">
     <title>سامانه تعیین دامنه قیمتهای مناسب در مناقصات</title>
     <script src="assets/js/jquery.min.js"></script>
-    <link rel="stylesheet" href="css/st.css" />
+    <link rel="stylesheet" href="css/st.css"/>
     <link href="css/chosen.css" rel="stylesheet" />
     <link href="css/kendo.common.min.css" rel="stylesheet" />
     <link href="css/kendo.default.min.css" rel="stylesheet" />
