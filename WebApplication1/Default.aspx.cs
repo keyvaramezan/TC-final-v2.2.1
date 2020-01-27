@@ -800,9 +800,10 @@ namespace TenderComp
                 catch (Exception ex)
                 {
 
-                    divSuccess.Visible = true;
-                    Page.ClientScript.RegisterStartupScript(GetType(), "MyScript", "javascript:$(\"#sectionB\").get(0).scrollIntoView()", true);
-                    lblSuccess.Text = "در ثبت اطلاعات مشکلی بوجود آمده است";
+                    divSuccess.Visible = false;
+                    divUnSuccess.Visible = true;
+                    UpdatePanel1.Update();
+                    //Page.ClientScript.RegisterStartupScript(GetType(), "MyScript", "javascript:$(\"#sectionB\").get(0).scrollIntoView()", true);
 
                 }
                 finally

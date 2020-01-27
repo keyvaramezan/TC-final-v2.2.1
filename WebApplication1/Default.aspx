@@ -120,6 +120,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <div class="content">
             <a href="logout.aspx">
                 <div class="out">خروج</div>
@@ -186,165 +187,170 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="allbox allboxB">
-                                <asp:UpdatePanel runat="server">
-                                    <p>لطفا مشخصات مناقصه را وارد نمایید</p>
-                                    <div class="box">
-                                        <div class="lbl1"><span>شماره مناقصه</span></div>
-                                        <div class="val1">
-                                            <asp:RequiredFieldValidator ID="vldTenderno" Text="█" ControlToValidate="txtTenderno" runat="server" ValidationGroup="2" />
+                            <asp:UpdatePanel runat="server" ID="UpdatePanel1" UpdateMode="Always">
+                                <ContentTemplate>
+                                    <div class="allbox allboxB">
+                                        <p>لطفا مشخصات مناقصه را وارد نمایید</p>
+                                        <div class="box">
+                                            <div class="lbl1"><span>شماره مناقصه</span></div>
+                                            <div class="val1">
+                                                <asp:RequiredFieldValidator ID="vldTenderno" Text="█" ControlToValidate="txtTenderno" runat="server" ValidationGroup="2" />
+                                            </div>
+                                            <div class="control">
+                                                <asp:TextBox runat="server" ID="txtTenderno" CssClass="input" autocomplete="off"></asp:TextBox>
+                                            </div>
+                                            <div class="val2">
+                                                <asp:CustomValidator runat="server" ID="cvlTenderno" ControlToValidate="txtTenderno" ValidationGroup="2" OnServerValidate="cvlTenderno_ServerValidate" Text="شماره مناقصه تکراری است" ForeColor="red" />
+                                            </div>
                                         </div>
-                                        <div class="control">
-                                            <asp:TextBox runat="server" ID="txtTenderno" CssClass="input" autocomplete="off"></asp:TextBox>
+                                        <div class="box">
+                                            <div class="lbl1"><span>نام مناقصه</span></div>
+                                            <div class="val1">
+                                                <asp:RequiredFieldValidator ID="vldTenderName" Text="█" ControlToValidate="txtTendername" runat="server" ValidationGroup="2" />
+                                            </div>
+                                            <div class="control">
+                                                <asp:TextBox runat="server" ID="txtTenderName" CssClass="input" autocomplete="off"></asp:TextBox>
+                                            </div>
+                                            <div class="val2"></div>
                                         </div>
-                                        <div class="val2">
-                                            <asp:CustomValidator runat="server" ID="cvlTenderno" ControlToValidate="txtTenderno" ValidationGroup="2" OnServerValidate="cvlTenderno_ServerValidate" Text="شماره مناقصه تکراری است" ForeColor="red" />
+                                        <div class="box">
+                                            <div class="lbl1"><span>نوع مناقصه</span></div>
+                                            <div class="val1"><span></span></div>
+                                            <div class="control">
+                                                <asp:DropDownList ID="drpTenderType" runat="server" AutoPostBack="true" class="select" OnTextChanged="drpTenderType_TextChanged">
+                                                    <asp:ListItem Text="یک مرحله ای" Value="false"></asp:ListItem>
+                                                    <asp:ListItem Text="دو مرحله ای" Value="true"></asp:ListItem>
+                                                </asp:DropDownList>
+                                            </div>
+                                            <div class="val2"><span></span></div>
                                         </div>
-                                    </div>
-                                    <div class="box">
-                                        <div class="lbl1"><span>نام مناقصه</span></div>
-                                        <div class="val1">
-                                            <asp:RequiredFieldValidator ID="vldTenderName" Text="█" ControlToValidate="txtTendername" runat="server" ValidationGroup="2" />
+                                        <div class="box">
+                                            <div class="lbl1"><span>مبلغ تضمین</span></div>
+                                            <div class="val1">
+                                                <asp:RequiredFieldValidator ID="vldTazmin" Text="█" ControlToValidate="txtTazmin" runat="server" ValidationGroup="2" />
+                                            </div>
+                                            <div class="control">
+                                                <asp:TextBox autocomplete="off" runat="server" ID="txtTazmin" onkeypress="return functionx(event)" onblur="ontextchange1();" onkeyup="ontextchange1();" class="input"></asp:TextBox>
+                                            </div>
+                                            <div class="val2">
+                                                <asp:Label runat="server" ID="lblTazmin"></asp:Label><span>ریال</span>
+                                            </div>
                                         </div>
-                                        <div class="control">
-                                            <asp:TextBox runat="server" ID="txtTenderName" CssClass="input" autocomplete="off"></asp:TextBox>
-                                        </div>
-                                        <div class="val2"></div>
-                                    </div>
-                                    <div class="box">
-                                        <div class="lbl1"><span>نوع مناقصه</span></div>
-                                        <div class="val1"><span></span></div>
-                                        <div class="control">
-                                            <asp:DropDownList ID="drpTenderType" runat="server" AutoPostBack="true" class="select" OnTextChanged="drpTenderType_TextChanged">
-                                                <asp:ListItem Text="یک مرحله ای" Value="false"></asp:ListItem>
-                                                <asp:ListItem Text="دو مرحله ای" Value="true"></asp:ListItem>
-                                            </asp:DropDownList>
-                                        </div>
-                                        <div class="val2"><span></span></div>
-                                    </div>
-                                    <div class="box">
-                                        <div class="lbl1"><span>مبلغ تضمین</span></div>
-                                        <div class="val1">
-                                            <asp:RequiredFieldValidator ID="vldTazmin" Text="█" ControlToValidate="txtTazmin" runat="server" ValidationGroup="2" />
-                                        </div>
-                                        <div class="control">
-                                            <asp:TextBox autocomplete="off" runat="server" ID="txtTazmin" onkeypress="return functionx(event)" onblur="ontextchange1();" onkeyup="ontextchange1();" class="input"></asp:TextBox>
-                                        </div>
-                                        <div class="val2">
-                                            <asp:Label runat="server" ID="lblTazmin"></asp:Label><span>ریال</span>
-                                        </div>
-                                    </div>
-                                    <div class="box">
-                                        <div class="lbl1">
-                                            <span>برآورد
+                                        <div class="box">
+                                            <div class="lbl1">
+                                                <span>برآورد
                                 <asp:Label runat="server" ID="lblCurrencyRiali" Text="ریالی" />
-                                                بهنگام کارفرما</span>
+                                                    بهنگام کارفرما</span>
+                                            </div>
+                                            <div class="val1">
+                                                <asp:RequiredFieldValidator ID="vldBaravord" Text="█" ControlToValidate="txtBaravord" runat="server" ValidationGroup="2" />
+                                            </div>
+                                            <div class="control">
+                                                <asp:TextBox autocomplete="off" runat="server" ID="txtBaravord" onkeypress="return functionx(event)" onblur="ontextchange2();" onkeyup="ontextchange2();" CssClass="input" />
+                                            </div>
+                                            <div class="val2">
+                                                <asp:Label runat="server" ID="lblBaravord"></asp:Label><span>ریال</span>
+                                            </div>
                                         </div>
-                                        <div class="val1">
-                                            <asp:RequiredFieldValidator ID="vldBaravord" Text="█" ControlToValidate="txtBaravord" runat="server" ValidationGroup="2" />
+                                        <div class="box">
+                                            <div class="lbl1"><span>نصاب معاملات متوسط</span></div>
+                                            <div class="val1">
+                                                <asp:RequiredFieldValidator runat="server" ID="vldnesab" ControlToValidate="txtNesab" ValidationGroup="2" Text="█"></asp:RequiredFieldValidator>
+                                            </div>
+                                            <div class="control">
+                                                <asp:TextBox autocomplete="off" runat="server" ID="txtNesab" onkeypress="return functionx(event)" onblur="ontextchange3();" onkeyup="ontextchange3();" CssClass="input" />
+                                            </div>
+                                            <div class="val2">
+                                                <asp:Label runat="server" ID="lblNesab"></asp:Label><span>ریال</span>
+                                            </div>
                                         </div>
-                                        <div class="control">
-                                            <asp:TextBox autocomplete="off" runat="server" ID="txtBaravord" onkeypress="return functionx(event)" onblur="ontextchange2();" onkeyup="ontextchange2();" CssClass="input" />
+                                        <div class="box" runat="server" visible="False" id="divTenderType">
+                                            <div class="lbl1"><span>ضریب تاثیر</span></div>
+                                            <div class="val1">
+                                                <asp:RequiredFieldValidator ID="vldi" Text="█" ControlToValidate="txti" runat="server" ValidationGroup="2" />
+                                            </div>
+                                            <div class="control">
+                                                <asp:TextBox autocomplete="off" runat="server" ID="txti" CssClass="input" />
+                                            </div>
+                                            <div class="val2">
+                                                <%--                                <asp:RegularExpressionValidator ForeColor="#ff8c00" runat="server" ID="rvldi" Text="باید بین 0.1 تا 0.4 باشد" ValidationExpression="\b([0]\.[1-3][0-9]{1,2})|([0]\.[1-4]{1})\b" ControlToValidate="txti" ValidationGroup="2" />--%>
+                                            </div>
                                         </div>
-                                        <div class="val2">
-                                            <asp:Label runat="server" ID="lblBaravord"></asp:Label><span>ریال</span>
+                                        <div class="box">
+                                            <div class="lbl1"><span>تاریخ مناقصه </span></div>
+                                            <div class="val1">
+                                                <asp:RequiredFieldValidator ID="vldTenderDate" Text="█" ControlToValidate="txtTenderDate" runat="server" ValidationGroup="2" />
+                                            </div>
+                                            <div class="control">
+                                                <asp:TextBox autocomplete="off" runat="server" ID="txtTenderDate" CssClass="input test" />
+                                            </div>
+                                            <div class="val2"><span></span></div>
                                         </div>
-                                    </div>
+                                        <div class="box">
+                                            <div class="lbl1"><span>اهمیت مناقصه</span></div>
+                                            <div class="val1">
+                                                <asp:RequiredFieldValidator ID="vldt" ForeColor="#ff8c00" Text="*" ControlToValidate="txtt" runat="server" ValidationGroup="2" />
+                                            </div>
+                                            <div class="control">
+                                                <asp:TextBox autocomplete="off" runat="server" ID="txtt" CssClass="input" />
+                                            </div>
+                                            <div class="val2">
+                                                <%--                                <asp:RegularExpressionValidator ForeColor="#ff8c00" runat="server" ID="rvldt" Text="باید بین 0.9 تا 1.5 باشد" ValidationExpression="\b([0]\.[9]{1})|([1]\.[0-5]{1})|([1])\b" ControlToValidate="txtt" ValidationGroup="2" />--%>
+                                            </div>
+                                        </div>
+                                        <div class="box">
+                                            <div class="lbl1"><span>ارزی/ ریالی</span></div>
+                                            <div class="val1"><span></span></div>
+                                            <div class="control">
+                                                <asp:DropDownList runat="server" ID="drpCurrency" AutoPostBack="True" class="select" OnTextChanged="drpCurrency_OnTextChanged">
+                                                    <asp:ListItem Text="ریالی" Value="0"></asp:ListItem>
+                                                    <asp:ListItem Text="ارزی" Value="1"></asp:ListItem>
+                                                    <asp:ListItem Text="ارزی/ریالی" Value="2"></asp:ListItem>
+                                                </asp:DropDownList>
+                                            </div>
+                                            <div class="val2"><span></span></div>
+                                        </div>
+                                        <div class="box" id="divCurrencyPrice" runat="server" visible="False">
+                                            <div class="lbl1"><span>قیمت ارز</span></div>
+                                            <div class="val1">
+                                                <asp:RequiredFieldValidator runat="server" ID="rvldCurrencyprice" ControlToValidate="txtCurrencyPrice" Text="█" />
+                                            </div>
+                                            <div class="control">
+                                                <asp:TextBox autocomplete="off" runat="server" ID="txtCurrencyPrice" CssClass="input"></asp:TextBox>
+                                            </div>
+                                            <div class="val2"><span></span></div>
+                                        </div>
+                                        <div class="box" runat="server" id="divBaravordCurrency" visible="false">
+                                            <div class="lbl1"><span>برآورد ارزی بهنگام کارفرما</span></div>
+                                            <div class="val1">
+                                                <asp:RequiredFieldValidator ID="vldBaravordCurrency" Text="█" ControlToValidate="txtBaravordCurrency" runat="server" ValidationGroup="2" />
+                                            </div>
+                                            <div class="control">
+                                                <asp:TextBox autocomplete="off" runat="server" ID="txtBaravordCurrency" onkeypress="return functionx(event)" onblur="ontextchange4();" onkeyup="ontextchange4();" CssClass="input" />
+                                            </div>
+                                            <div class="val2">
+                                                <asp:Label runat="server" ID="lblBaravordCurrency" />
+                                                <span></span>
+                                            </div>
+                                        </div>
 
-                                    <div class="box">
-                                        <div class="lbl1"><span>نصاب معاملات متوسط</span></div>
-                                        <div class="val1">
-                                            <asp:RequiredFieldValidator runat="server" ID="vldnesab" ControlToValidate="txtNesab" ValidationGroup="2" Text="█"></asp:RequiredFieldValidator>
-                                        </div>
-                                        <div class="control">
-                                            <asp:TextBox autocomplete="off" runat="server" ID="txtNesab" onkeypress="return functionx(event)" onblur="ontextchange3();" onkeyup="ontextchange3();" CssClass="input" />
-                                        </div>
-                                        <div class="val2">
-                                            <asp:Label runat="server" ID="lblNesab"></asp:Label><span>ریال</span>
-                                        </div>
-                                    </div>
-                                    <div class="box" runat="server" visible="False" id="divTenderType">
-                                        <div class="lbl1"><span>ضریب تاثیر</span></div>
-                                        <div class="val1">
-                                            <asp:RequiredFieldValidator ID="vldi" Text="█" ControlToValidate="txti" runat="server" ValidationGroup="2" />
-                                        </div>
-                                        <div class="control">
-                                            <asp:TextBox autocomplete="off" runat="server" ID="txti" CssClass="input" />
-                                        </div>
-                                        <div class="val2">
-                                            <%--                                <asp:RegularExpressionValidator ForeColor="#ff8c00" runat="server" ID="rvldi" Text="باید بین 0.1 تا 0.4 باشد" ValidationExpression="\b([0]\.[1-3][0-9]{1,2})|([0]\.[1-4]{1})\b" ControlToValidate="txti" ValidationGroup="2" />--%>
-                                        </div>
-                                    </div>
-                                    <div class="box">
-                                        <div class="lbl1"><span>تاریخ مناقصه </span></div>
-                                        <div class="val1">
-                                            <asp:RequiredFieldValidator ID="vldTenderDate" Text="█" ControlToValidate="txtTenderDate" runat="server" ValidationGroup="2" />
-                                        </div>
-                                        <div class="control">
-                                            <asp:TextBox autocomplete="off" runat="server" ID="txtTenderDate" CssClass="input test" />
-                                        </div>
-                                        <div class="val2"><span></span></div>
-                                    </div>
-                                    <div class="box">
-                                        <div class="lbl1"><span>اهمیت مناقصه</span></div>
-                                        <div class="val1">
-                                            <asp:RequiredFieldValidator ID="vldt" ForeColor="#ff8c00" Text="*" ControlToValidate="txtt" runat="server" ValidationGroup="2" />
-                                        </div>
-                                        <div class="control">
-                                            <asp:TextBox autocomplete="off" runat="server" ID="txtt" CssClass="input" />
-                                        </div>
-                                        <div class="val2">
-                                            <%--                                <asp:RegularExpressionValidator ForeColor="#ff8c00" runat="server" ID="rvldt" Text="باید بین 0.9 تا 1.5 باشد" ValidationExpression="\b([0]\.[9]{1})|([1]\.[0-5]{1})|([1])\b" ControlToValidate="txtt" ValidationGroup="2" />--%>
-                                        </div>
-                                    </div>
-                                    <div class="box">
-                                        <div class="lbl1"><span>ارزی/ ریالی</span></div>
-                                        <div class="val1"><span></span></div>
-                                        <div class="control">
-                                            <asp:DropDownList runat="server" ID="drpCurrency" AutoPostBack="True" class="select" OnTextChanged="drpCurrency_OnTextChanged">
-                                                <asp:ListItem Text="ریالی" Value="0"></asp:ListItem>
-                                                <asp:ListItem Text="ارزی" Value="1"></asp:ListItem>
-                                                <asp:ListItem Text="ارزی/ریالی" Value="2"></asp:ListItem>
-                                            </asp:DropDownList>
-                                        </div>
-                                        <div class="val2"><span></span></div>
-                                    </div>
-                                    <div class="box" id="divCurrencyPrice" runat="server" visible="False">
-                                        <div class="lbl1"><span>قیمت ارز</span></div>
-                                        <div class="val1">
-                                            <asp:RequiredFieldValidator runat="server" ID="rvldCurrencyprice" ControlToValidate="txtCurrencyPrice" Text="█" />
-                                        </div>
-                                        <div class="control">
-                                            <asp:TextBox autocomplete="off" runat="server" ID="txtCurrencyPrice" CssClass="input"></asp:TextBox>
-                                        </div>
-                                        <div class="val2"><span></span></div>
-                                    </div>
-                                    <div class="box" runat="server" id="divBaravordCurrency" visible="false">
-                                        <div class="lbl1"><span>برآورد ارزی بهنگام کارفرما</span></div>
-                                        <div class="val1">
-                                            <asp:RequiredFieldValidator ID="vldBaravordCurrency" Text="█" ControlToValidate="txtBaravordCurrency" runat="server" ValidationGroup="2" />
-                                        </div>
-                                        <div class="control">
-                                            <asp:TextBox autocomplete="off" runat="server" ID="txtBaravordCurrency" onkeypress="return functionx(event)" onblur="ontextchange4();" onkeyup="ontextchange4();" CssClass="input" />
-                                        </div>
-                                        <div class="val2">
-                                            <asp:Label runat="server" ID="lblBaravordCurrency" />
-                                            <span></span>
-                                        </div>
-                                    </div>
-                                    <div class="box btn">
-                                        <input type="button" class="scroll_button" value="مرحله قبل" onclick="scroll_to_div('sectionA')" />
-                                        <div class="blnk"></div>
-                                        <asp:Button runat="server" ID="btnEnter" OnClick="btnEnter_OnClick" Text="ذخیره" ValidationGroup="2" />
-                                        <div class="blnk"></div>
-                                        <input type="button" class="scroll_button" value="مرحله بعد" onclick="scroll_to_div('sectionC')" />
-                                    </div>
-                                </asp:UpdatePanel>
-                                <div runat="server" class="lbl" id="divSuccess" visible="False">
-                                    <asp:Label runat="server" Text="اطلاعات شما با موفقیت ثبت گردید" ID="lblSuccess"></asp:Label>
-
+                                <div class="box btn">
+                                    <input type="button" class="scroll_button" value="مرحله قبل" onclick="scroll_to_div('sectionA')" />
+                                    <div class="blnk"></div>
+                                    <asp:Button runat="server" ID="btnEnter" OnClick="btnEnter_OnClick" Text="ذخیره" ValidationGroup="2" />
+                                    <div class="blnk"></div>
+                                    <input type="button" class="scroll_button" value="مرحله بعد" onclick="scroll_to_div('sectionC')" />
                                 </div>
-                            </div>
+                                <div runat="server" class="lbl" id="divSuccess" visible="False">
+                                    <asp:Label runat="server" Text="اطلاعات با موفقیت ثبت گردید" ID="lblSuccess"></asp:Label>
+                                </div>
+                                <div runat="server" class="lbl" id="divUnSuccess" visible="False">
+                                    <asp:Label runat="server" Text="درثبت اطلاعات مشکل بوجود آمده است" ID="lblUnSuccess"></asp:Label>
+                                </div>
+                                </div>
+
+                              </ContentTemplate>
+                            </asp:UpdatePanel>
                         </div>
                     </div>
                 </div>
