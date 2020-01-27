@@ -802,7 +802,6 @@ namespace TenderComp
 
                     divSuccess.Visible = false;
                     divUnSuccess.Visible = true;
-                    UpdatePanel1.Update();
                     //Page.ClientScript.RegisterStartupScript(GetType(), "MyScript", "javascript:$(\"#sectionB\").get(0).scrollIntoView()", true);
 
                 }
