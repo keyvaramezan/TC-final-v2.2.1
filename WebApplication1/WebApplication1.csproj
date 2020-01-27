@@ -22,7 +22,7 @@
     <IISExpressUseClassicPipelineMode />
     <TargetFrameworkProfile />
     <UseGlobalApplicationHostFile />
-    <TypeScriptToolsVersion>1.7</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>2.1</TypeScriptToolsVersion>
     <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -250,7 +250,6 @@
     <Content Include="TenderComputDBEntities1.edmx.diagram">
       <DependentUpon>TenderComputDBEntities1.edmx</DependentUpon>
     </Content>
-    <Content Include="TenderComputDBEntities1.edmx.sql" />
     <Content Include="TenderComputDBEntities1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>TenderComputDBEntities1.edmx</DependentUpon>

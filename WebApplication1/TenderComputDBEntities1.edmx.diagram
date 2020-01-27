@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="522fd324e15d4fd7bdc7fde45ea8e2cb" Name="Diagram1" ZoomLevel="128">
+      <Diagram DiagramId="522fd324e15d4fd7bdc7fde45ea8e2cb" Name="Diagram1" ZoomLevel="120">
         <EntityTypeShape EntityType="TenderComputDBModel.tblUser" Width="1.5" PointX="4.25" PointY="2.25" />
         <EntityTypeShape EntityType="TenderComputDBModel.tblTender" Width="1.5" PointX="7" PointY="1.375" />
         <AssociationConnector Association="TenderComputDBModel.FK_tblTenders_Users" />
