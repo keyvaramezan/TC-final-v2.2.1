@@ -115,6 +115,7 @@
                 },
                 2000);
         }
+
     </script>
 
 </head>
@@ -187,9 +188,21 @@
                                     </div>
                                 </div>
                             </div>
-                            <asp:UpdatePanel runat="server" ID="UpdatePanel1" UpdateMode="Always">
-                                <ContentTemplate>
-                                    <div class="allbox allboxB">
+
+                            <div class="allbox allboxB">
+                                <asp:UpdateProgress ID="updateProgress1" runat="server" AssociatedUpdatePanelID="updatePanel1" DisplayAfter="1">
+                                    <ProgressTemplate>
+                                        <img src="images/35.gif" />
+                                    </ProgressTemplate>
+                                </asp:UpdateProgress>
+                                <asp:UpdatePanel runat="server" ID="updatePanel1">
+                                    <Triggers>
+                                        <asp:PostBackTrigger ControlID="btnEnter" />
+                                        <asp:AsyncPostBackTrigger ControlID="drpTenderType" EventName="TextChanged" />
+                                        <asp:AsyncPostBackTrigger ControlID="drpCurrency" />
+
+                                    </Triggers>
+                                    <ContentTemplate>
                                         <p>لطفا مشخصات مناقصه را وارد نمایید</p>
                                         <div class="box">
                                             <div class="lbl1"><span>شماره مناقصه</span></div>
@@ -333,6 +346,12 @@
                                                 <span></span>
                                             </div>
                                         </div>
+                                        <div runat="server" class="lblSucess" id="divSuccess" visible="False">
+                                            <asp:Label runat="server" Text="اطلاعات با موفقیت ثبت گردید" ID="lblSuccess"></asp:Label>
+                                        </div>
+                                        <div runat="server" class="lblUnSucess" id="divUnSuccess" visible="False">
+                                            <asp:Label runat="server" Text="درثبت اطلاعات مشکل بوجود آمده است" ID="lblUnSuccess"></asp:Label>
+                                        </div>
 
                                         <div class="box btn">
                                             <input type="button" class="scroll_button" value="مرحله قبل" onclick="scroll_to_div('sectionA')" />
@@ -341,242 +360,244 @@
                                             <div class="blnk"></div>
                                             <input type="button" class="scroll_button" value="مرحله بعد" onclick="scroll_to_div('sectionC')" />
                                         </div>
-                                        <div runat="server" class="lbl" id="divSuccess" visible="False">
-                                            <asp:Label runat="server" Text="اطلاعات با موفقیت ثبت گردید" ID="lblSuccess"></asp:Label>
-                                        </div>
-                                        <div runat="server" class="lbl" id="divUnSuccess" visible="False">
-                                            <asp:Label runat="server" Text="درثبت اطلاعات مشکل بوجود آمده است" ID="lblUnSuccess"></asp:Label>
-                                        </div>
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <hr />
+            <br />
+            <div id="sectionC">
+                <div class="effect">
+                    <div class="contC">
+                        <div class="contBackground">
+                            <div class="allbox allboxC">
+                                <p>لطفا مشخصات شرکت کنندگان در مناقصه را وارد نمایید</p>
+                                <div class="box">
+                                    <div class="lbl1"><span>نام شرکت :</span></div>
+                                    <div class="val1">
+                                        <asp:RequiredFieldValidator ID="vldCompanyName" Text="█" ControlToValidate="txtComponyName" runat="server" ValidationGroup="1" />
                                     </div>
+                                    <div class="control">
+                                        <asp:TextBox autocomplete="off" runat="server" ID="txtComponyName" CssClass="input"></asp:TextBox>
+                                    </div>
+                                    <div class="val2"><span></span></div>
+                                </div>
+                                <div class="box">
+                                    <div class="lbl1"><span>قیمت پشنهادی :</span></div>
+                                    <div class="val1">
+                                        <%-- <asp:RequiredFieldValidator ID="vldPrice" ForeColor="#ff8c00" Text="*" ControlToValidate="txtPrice" runat="server" ValidationGroup="1" />--%>
+                                    </div>
+                                    <div class="control">
+                                        <asp:TextBox autocomplete="off" runat="server" ID="txtPrice" onkeypress="return functionx(event)" onblur="ontextchange0();" onkeyup="ontextchange0();" CssClass="input"></asp:TextBox>
+                                    </div>
+                                    <div class="val2">
+                                        <asp:Label runat="server" ID="lblPrice"></asp:Label><span>ریال</span>
+                                    </div>
+                                </div>
+                                <div class="box" id="divCurrencyPrice2" runat="server" visible="False">
+                                    <div class="lbl1"><span>قیمت ارزی :</span></div>
+                                    <div class="val1">
+                                        <%--<asp:RequiredFieldValidator ID="valCurrencyPrice2" ForeColor="#ff8c00" Text="*" ControlToValidate="txtCurrencyPrice2" runat="server" ValidationGroup="1" />--%>
+                                    </div>
+                                    <div class="control">
+                                        <asp:TextBox autocomplete="off" runat="server" ID="txtCurrencyPrice2" onkeypress="return functionx(event)" onblur="ontextchange0();" onkeyup="ontextchange0();" CssClass="input"></asp:TextBox>
+                                    </div>
+                                    <div class="val2">
+                                        <%-- <asp:Label runat="server" ID="Label1"></asp:Label><span>ریال</span>--%>
+                                    </div>
+                                </div>
+                                <div class="box" id="divEmtiazFani" runat="server" visible="False">
+                                    <div class="lbl1"><span>امتیاز فنی :</span></div>
+                                    <div class="val1">
+                                        <%--<asp:RequiredFieldValidator ID="vldEmtiazFani" ForeColor="#ff8c00" Text="*" ControlToValidate="txtEmtiazFani" runat="server" ValidationGroup="1" />--%>
+                                    </div>
+                                    <div class="control">
+                                        <asp:TextBox autocomplete="off" runat="server" ID="txtEmtiazFani" CssClass="input" />
+                                    </div>
+                                    <div class="val2">
+                                        <asp:RegularExpressionValidator ForeColor="" runat="server" ID="RvldEmtiazFani" Text="باید بین 50 تا 100 باشد" ValidationExpression="\b([5-9]{1}[0-9]{1}\.[0-9]{1,2})|100|([5-9]{1}[0-9]{1})\b" ControlToValidate="txtEmtiazFani" ValidationGroup="1" />
+                                    </div>
+                                </div>
+                                <div class="val2" runat="server" visible="False" id="divReqTender">
+                                    <span style="color: #ff8c00">مشخصات مناقصه وارد  یا ذخیره نشده است</span>
+                                </div>
+                                <div class="box btn">
+                                    <asp:Button runat="server" ID="btnAddcompony" Text="اضافه" OnClick="InsertCompony" ValidationGroup="1" />
 
-                                </ContentTemplate>
-                            </asp:UpdatePanel>
-                        </div>
-                    </div>
-            </div>
-        </div>
-        <br />
-        <hr />
-        <br />
-        <div id="sectionC">
-            <div class="effect">
-                <div class="contC">
-                    <div class="contBackground">
-                        <div class="allbox allboxC">
-                            <p>لطفا مشخصات شرکت کنندگان در مناقصه را وارد نمایید</p>
-                            <div class="box">
-                                <div class="lbl1"><span>نام شرکت :</span></div>
-                                <div class="val1">
-                                    <asp:RequiredFieldValidator ID="vldCompanyName" Text="█" ControlToValidate="txtComponyName" runat="server" ValidationGroup="1" />
                                 </div>
-                                <div class="control">
-                                    <asp:TextBox autocomplete="off" runat="server" ID="txtComponyName" CssClass="input"></asp:TextBox>
+                                <br />
+                                <asp:UpdateProgress runat="server" ID="updateProgress2" AssociatedUpdatePanelID="updatePanel2" DisplayAfter="1">
+                                    <ProgressTemplate>
+                                        <img src="images/35.gif" />
+                                    </ProgressTemplate>
+                                </asp:UpdateProgress>
+                                <p>لیست شرکت کنندگان</p>
+                                <asp:UpdatePanel runat="server" ID="updatePanel2">
+                                    <ContentTemplate>
+                                        <div class="gridv" id="printablediv">
+                                            <asp:GridView ID="GrdComponies" OnRowEditing="GrdComponies_RowEditing" OnRowUpdating="GrdComponies_RowUpdating" OnRowCancelingEdit="GrdComponies_RowCancelingEdit" runat="server" AutoGenerateColumns="false" DataKeyNames="ID" EmptyDataText="هیچ آیتمی وجود ندارد" BorderWidth="0" EmptyDataRowStyle-CssClass="gridtxt">
+                                                <Columns>
+                                                    <asp:TemplateField ItemStyle-CssClass="gridcheck" HeaderStyle-CssClass="gridheader">
+                                                        <ItemTemplate>
+                                                            <asp:CheckBox runat="server" ID="chkRow" />
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="نام شرکت" ItemStyle-CssClass="gridname" HeaderStyle-CssClass="gridheader">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lblName" runat="server" Text='<%# Eval("ComponyName") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="txtEditName" runat="server" Text='<%# Eval("ComponyName") %>'></asp:TextBox>
+                                                        </EditItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="قیمت ارزی" ItemStyle-CssClass="gridprice" HeaderStyle-CssClass="gridheader">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lblCurrencyPrice" runat="server" Text='<%#  Eval("CurrencyPrice", "{0:#,0}") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="txtEditCurrencyPriece" runat="server" Text='<%#  Eval("CurrencyPrice", "{0:#,0}") %>'></asp:TextBox>
+                                                        </EditItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="قیمت ریالی" ItemStyle-CssClass="gridprice" HeaderStyle-CssClass="gridheader">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lblRialiPrice" runat="server" Text='<%#  Eval("RialiPrice", "{0:#,0}") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="txtEditRialiPrice" runat="server" Text='<%#  Eval("RialiPrice", "{0:#,0}") %>'></asp:TextBox>
+                                                        </EditItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="جمع ارزی و ریالی" ItemStyle-CssClass="gridprice" HeaderStyle-CssClass="gridheader">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lblPrice" runat="server" Text='<%#  Eval("Price", "{0:#,0}") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="امتیاز فنی" ItemStyle-CssClass="gridtechnical" HeaderStyle-CssClass="gridheader">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lblEmtiazFani" runat="server" Text='<%# Eval("t") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="txtEditEmtiazFani" runat="server" Text='<%# Eval("t") %>'></asp:TextBox>
+                                                            <span>
+                                                                <asp:RequiredFieldValidator ID="vldEditEmtiazFani" ForeColor="#ff8c00" Text="*" ControlToValidate="txtEditEmtiazFani" runat="server" ValidationGroup="3" /></span>
+                                                            <span>
+                                                                <asp:RegularExpressionValidator ForeColor="#c58d21" runat="server" ID="RvldEditEmtiazFani" Text="باید بین 50 تا 100 باشد" ValidationExpression="\b([5-9]{1}[0-9]{1}\.[0-9]{1,2})|100|([5-9]{1}[0-9]{1})\b" ControlToValidate="txtEditEmtiazFani" ValidationGroup="3" /></span>
+                                                        </EditItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="قیمت تراز شده" ItemStyle-CssClass="gridtaraz" HeaderStyle-CssClass="gridheader">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lblTarazShode" runat="server" Text='<%# Eval("L", "{0:#,0}") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="درصد اختلاف از برآورد" ItemStyle-CssClass="gridtaraz" HeaderStyle-CssClass="gridheader">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="IeDiff" runat="server" Text='<%# Eval("IeDiff", "{0:#.##}") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="شاخص" ItemStyle-CssClass="gridtaraz" HeaderStyle-CssClass="gridheader">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lblX" runat="server" Text='<%# Eval("X", "{0:#.###}") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="برنده" ItemStyle-CssClass="gridtaraz" HeaderStyle-CssClass="gridheader" Visible="False">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lblIswin" runat="server" Text='<%# Eval("Iswin") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="شرح" ItemStyle-CssClass="griddes" HeaderStyle-CssClass="gridheader">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lblComment" runat="server" Text='<%# Eval("Comment") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:CommandField ButtonType="Link" ShowEditButton="true" ControlStyle-ForeColor="White" EditText="ویرایش" CancelText="لغو" UpdateText="ذخیره" ValidationGroup="3" />
+                                                </Columns>
+                                            </asp:GridView>
+                                        </div>
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
+                                <div class="gridv" id="printablediv2">
+                                    <asp:GridView runat="server" ID="grdTenderProperties" AutoGenerateColumns="False" EmptyDataText="هیچ آیتمی وجود ندارد" BorderWidth="0" EmptyDataRowStyle-CssClass="gridtxt">
+                                        <Columns>
+                                            <asp:TemplateField HeaderText="شماره مناقصه" ItemStyle-CssClass="griddes" HeaderStyle-CssClass="gridheader">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lblTenderNo" runat="server" Text='<%# Eval("Tenderno") %>'></asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="نام مناقصه" ItemStyle-CssClass="griddes" HeaderStyle-CssClass="gridheader">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lblTenderName" runat="server" Text='<%# Eval("TenderName") %>'></asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="انحراف از معیار" ItemStyle-CssClass="griddes" HeaderStyle-CssClass="gridheader">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lblVariance" runat="server" Text='<%# Eval("Variance" ,"{0:#.##}") %>'></asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="میانگین" ItemStyle-CssClass="griddes" HeaderStyle-CssClass="gridheader">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="Average" runat="server" Text='<%# Eval("Average", "{0:#.##}") %>'></asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="حدبالا" ItemStyle-CssClass="griddes" HeaderStyle-CssClass="gridheader">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lblUpperLimit" runat="server" Text='<%# Eval("UpperLimit", "{0:#.##}") %>'></asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="حدپایین" ItemStyle-CssClass="griddes" HeaderStyle-CssClass="gridheader">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lblBottomLimit" runat="server" Text='<%# Eval("BottomLimit" ,"{0:#.##}") %>'></asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                        </Columns>
+                                    </asp:GridView>
                                 </div>
-                                <div class="val2"><span></span></div>
-                            </div>
-                            <div class="box">
-                                <div class="lbl1"><span>قیمت پشنهادی :</span></div>
-                                <div class="val1">
-                                    <%-- <asp:RequiredFieldValidator ID="vldPrice" ForeColor="#ff8c00" Text="*" ControlToValidate="txtPrice" runat="server" ValidationGroup="1" />--%>
+                                <div class="box btn">
+                                    <div class="blnk"></div>
+                                    <input type="button" class="scroll_button" value="مرحله قبل" onclick="scroll_to_div('sectionB')" />
+                                    <div class="blnk"></div>
+                                    <asp:Button runat="server" ID="btnDelete" Text="حذف" OnClick="DeleteItem" />
+                                    <div class="blnk"></div>
+                                    <asp:Button runat="server" ID="btnDeleteAll" Text="حذف همه" OnClick="btnDeleteAll_OnClick" />
+                                    <div class="blnk"></div>
+                                    <input type="button" class="scroll_button" value="مرحله بعد" onclick="scroll_to_div('sectionD')" />
                                 </div>
-                                <div class="control">
-                                    <asp:TextBox autocomplete="off" runat="server" ID="txtPrice" onkeypress="return functionx(event)" onblur="ontextchange0();" onkeyup="ontextchange0();" CssClass="input"></asp:TextBox>
-                                </div>
-                                <div class="val2">
-                                    <asp:Label runat="server" ID="lblPrice"></asp:Label><span>ریال</span>
-                                </div>
-                            </div>
-                            <div class="box" id="divCurrencyPrice2" runat="server" visible="False">
-                                <div class="lbl1"><span>قیمت ارزی :</span></div>
-                                <div class="val1">
-                                    <%--<asp:RequiredFieldValidator ID="valCurrencyPrice2" ForeColor="#ff8c00" Text="*" ControlToValidate="txtCurrencyPrice2" runat="server" ValidationGroup="1" />--%>
-                                </div>
-                                <div class="control">
-                                    <asp:TextBox autocomplete="off" runat="server" ID="txtCurrencyPrice2" onkeypress="return functionx(event)" onblur="ontextchange0();" onkeyup="ontextchange0();" CssClass="input"></asp:TextBox>
-                                </div>
-                                <div class="val2">
-                                    <%-- <asp:Label runat="server" ID="Label1"></asp:Label><span>ریال</span>--%>
-                                </div>
-                            </div>
-                            <div class="box" id="divEmtiazFani" runat="server" visible="False">
-                                <div class="lbl1"><span>امتیاز فنی :</span></div>
-                                <div class="val1">
-                                    <%--<asp:RequiredFieldValidator ID="vldEmtiazFani" ForeColor="#ff8c00" Text="*" ControlToValidate="txtEmtiazFani" runat="server" ValidationGroup="1" />--%>
-                                </div>
-                                <div class="control">
-                                    <asp:TextBox autocomplete="off" runat="server" ID="txtEmtiazFani" CssClass="input" />
-                                </div>
-                                <div class="val2">
-                                    <asp:RegularExpressionValidator ForeColor="" runat="server" ID="RvldEmtiazFani" Text="باید بین 50 تا 100 باشد" ValidationExpression="\b([5-9]{1}[0-9]{1}\.[0-9]{1,2})|100|([5-9]{1}[0-9]{1})\b" ControlToValidate="txtEmtiazFani" ValidationGroup="1" />
-                                </div>
-                            </div>
-                            <div class="val2" runat="server" visible="False" id="divReqTender">
-                                <span style="color: #ff8c00">مشخصات مناقصه وارد  یا ذخیره نشده است</span>
-                            </div>
-                            <div class="box btn">
-                                <asp:Button runat="server" ID="btnAddcompony" Text="اضافه" OnClick="InsertCompony" ValidationGroup="1" />
-
-                            </div>
-                            <br />
-                            <p>لیست شرکت کنندگان</p>
-                            <div class="gridv" id="printablediv">
-                                <asp:GridView ID="GrdComponies" OnRowEditing="GrdComponies_RowEditing" OnRowUpdating="GrdComponies_RowUpdating" OnRowCancelingEdit="GrdComponies_RowCancelingEdit" runat="server" AutoGenerateColumns="false" DataKeyNames="ID" EmptyDataText="هیچ آیتمی وجود ندارد" BorderWidth="0" EmptyDataRowStyle-CssClass="gridtxt">
-                                    <Columns>
-                                        <asp:TemplateField ItemStyle-CssClass="gridcheck" HeaderStyle-CssClass="gridheader">
-                                            <ItemTemplate>
-                                                <asp:CheckBox runat="server" ID="chkRow" />
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="نام شرکت" ItemStyle-CssClass="gridname" HeaderStyle-CssClass="gridheader">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lblName" runat="server" Text='<%# Eval("ComponyName") %>'></asp:Label>
-                                            </ItemTemplate>
-                                            <EditItemTemplate>
-                                                <asp:TextBox ID="txtEditName" runat="server" Text='<%# Eval("ComponyName") %>'></asp:TextBox>
-                                            </EditItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="قیمت ارزی" ItemStyle-CssClass="gridprice" HeaderStyle-CssClass="gridheader">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lblCurrencyPrice" runat="server" Text='<%#  Eval("CurrencyPrice", "{0:#,0}") %>'></asp:Label>
-                                            </ItemTemplate>
-                                            <EditItemTemplate>
-                                                <asp:TextBox ID="txtEditCurrencyPriece" runat="server" Text='<%#  Eval("CurrencyPrice", "{0:#,0}") %>'></asp:TextBox>
-                                            </EditItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="قیمت ریالی" ItemStyle-CssClass="gridprice" HeaderStyle-CssClass="gridheader">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lblRialiPrice" runat="server" Text='<%#  Eval("RialiPrice", "{0:#,0}") %>'></asp:Label>
-                                            </ItemTemplate>
-                                            <EditItemTemplate>
-                                                <asp:TextBox ID="txtEditRialiPrice" runat="server" Text='<%#  Eval("RialiPrice", "{0:#,0}") %>'></asp:TextBox>
-                                            </EditItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="جمع ارزی و ریالی" ItemStyle-CssClass="gridprice" HeaderStyle-CssClass="gridheader">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lblPrice" runat="server" Text='<%#  Eval("Price", "{0:#,0}") %>'></asp:Label>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="امتیاز فنی" ItemStyle-CssClass="gridtechnical" HeaderStyle-CssClass="gridheader">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lblEmtiazFani" runat="server" Text='<%# Eval("t") %>'></asp:Label>
-                                            </ItemTemplate>
-                                            <EditItemTemplate>
-                                                <asp:TextBox ID="txtEditEmtiazFani" runat="server" Text='<%# Eval("t") %>'></asp:TextBox>
-                                                <span>
-                                                    <asp:RequiredFieldValidator ID="vldEditEmtiazFani" ForeColor="#ff8c00" Text="*" ControlToValidate="txtEditEmtiazFani" runat="server" ValidationGroup="3" /></span>
-                                                <span>
-                                                    <asp:RegularExpressionValidator ForeColor="#c58d21" runat="server" ID="RvldEditEmtiazFani" Text="باید بین 50 تا 100 باشد" ValidationExpression="\b([5-9]{1}[0-9]{1}\.[0-9]{1,2})|100|([5-9]{1}[0-9]{1})\b" ControlToValidate="txtEditEmtiazFani" ValidationGroup="3" /></span>
-                                            </EditItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="قیمت تراز شده" ItemStyle-CssClass="gridtaraz" HeaderStyle-CssClass="gridheader">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lblTarazShode" runat="server" Text='<%# Eval("L", "{0:#,0}") %>'></asp:Label>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="درصد اختلاف از برآورد" ItemStyle-CssClass="gridtaraz" HeaderStyle-CssClass="gridheader">
-                                            <ItemTemplate>
-                                                <asp:Label ID="IeDiff" runat="server" Text='<%# Eval("IeDiff", "{0:#.##}") %>'></asp:Label>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="شاخص" ItemStyle-CssClass="gridtaraz" HeaderStyle-CssClass="gridheader">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lblX" runat="server" Text='<%# Eval("X", "{0:#.###}") %>'></asp:Label>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="برنده" ItemStyle-CssClass="gridtaraz" HeaderStyle-CssClass="gridheader" Visible="False">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lblIswin" runat="server" Text='<%# Eval("Iswin") %>'></asp:Label>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="شرح" ItemStyle-CssClass="griddes" HeaderStyle-CssClass="gridheader">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lblComment" runat="server" Text='<%# Eval("Comment") %>'></asp:Label>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:CommandField ButtonType="Link" ShowEditButton="true" ControlStyle-ForeColor="White" EditText="ویرایش" CancelText="لغو" UpdateText="ذخیره" ValidationGroup="3" />
-                                    </Columns>
-                                </asp:GridView>
-                            </div>
-                            <div class="gridv" id="printablediv2">
-                                <asp:GridView runat="server" ID="grdTenderProperties" AutoGenerateColumns="False" EmptyDataText="هیچ آیتمی وجود ندارد" BorderWidth="0" EmptyDataRowStyle-CssClass="gridtxt">
-                                    <Columns>
-                                        <asp:TemplateField HeaderText="شماره مناقصه" ItemStyle-CssClass="griddes" HeaderStyle-CssClass="gridheader">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lblTenderNo" runat="server" Text='<%# Eval("Tenderno") %>'></asp:Label>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="نام مناقصه" ItemStyle-CssClass="griddes" HeaderStyle-CssClass="gridheader">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lblTenderName" runat="server" Text='<%# Eval("TenderName") %>'></asp:Label>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="انحراف از معیار" ItemStyle-CssClass="griddes" HeaderStyle-CssClass="gridheader">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lblVariance" runat="server" Text='<%# Eval("Variance" ,"{0:#.##}") %>'></asp:Label>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="میانگین" ItemStyle-CssClass="griddes" HeaderStyle-CssClass="gridheader">
-                                            <ItemTemplate>
-                                                <asp:Label ID="Average" runat="server" Text='<%# Eval("Average", "{0:#.##}") %>'></asp:Label>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="حدبالا" ItemStyle-CssClass="griddes" HeaderStyle-CssClass="gridheader">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lblUpperLimit" runat="server" Text='<%# Eval("UpperLimit", "{0:#.##}") %>'></asp:Label>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="حدپایین" ItemStyle-CssClass="griddes" HeaderStyle-CssClass="gridheader">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lblBottomLimit" runat="server" Text='<%# Eval("BottomLimit" ,"{0:#.##}") %>'></asp:Label>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                    </Columns>
-                                </asp:GridView>
-                            </div>
-                            <div class="box btn">
-                                <div class="blnk"></div>
-                                <input type="button" class="scroll_button" value="مرحله قبل" onclick="scroll_to_div('sectionB')" />
-                                <div class="blnk"></div>
-                                <asp:Button runat="server" ID="btnDelete" Text="حذف" OnClick="DeleteItem" />
-                                <div class="blnk"></div>
-                                <asp:Button runat="server" ID="btnDeleteAll" Text="حذف همه" OnClick="btnDeleteAll_OnClick" />
-                                <div class="blnk"></div>
-                                <input type="button" class="scroll_button" value="مرحله بعد" onclick="scroll_to_div('sectionD')" />
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <br />
-        <hr />
-        <br />
-        <div id="sectionD">
-            <div class="effect">
-                <div class="contD">
-                    <div class="contBackground">
-                        <div class="allbox allboxD">
-                            <p>شرکتهای مجاز</p>
-                            <div class="box">
-                                <asp:Label runat="server" ID="lblt" />
-                            </div>
-                            <div class="box">
-                                <asp:Label runat="server" ID="lblnullData" Visible="False" ForeColor="#1c4e6b" Text="اطلاعات ناقص است" />
-                            </div>
-                            <div class="box btn">
-                                <div class="blnk"></div>
-                                <input type="button" class="scroll_button" value="مرحله قبل" onclick="scroll_to_div('sectionC')" />
-                                <div class="blnk"></div>
-                                <asp:Button runat="server" ID="btnComput" OnClick="btnComput_OnClick" Text="محاسبه برنده" />
-                                <div class="blnk"></div>
-                                <%--                        <div class="btnlink" onclick="printDiv('printablediv', 'printablediv2')">چاپ نتیجه</div>--%>
-                                <asp:Button runat="server" CssClass="btnlink" ID="btnSendPrint" Text="چاپ نتیجه" OnClick="btnSendPrint_OnClick" OnClientClick="document.forms[0].target='_blank';" />
+            <br />
+            <hr />
+            <br />
+            <div id="sectionD">
+                <div class="effect">
+                    <div class="contD">
+                        <div class="contBackground">
+                            <div class="allbox allboxD">
+                                <p>شرکتهای مجاز</p>
+                                <div class="box">
+                                    <asp:Label runat="server" ID="lblt" />
+                                </div>
+                                <div class="box">
+                                    <asp:Label runat="server" ID="lblnullData" Visible="False" ForeColor="#1c4e6b" Text="اطلاعات ناقص است" />
+                                </div>
+                                <div class="box btn">
+                                    <div class="blnk"></div>
+                                    <input type="button" class="scroll_button" value="مرحله قبل" onclick="scroll_to_div('sectionC')" />
+                                    <div class="blnk"></div>
+                                    <asp:Button runat="server" ID="btnComput" OnClick="btnComput_OnClick" Text="محاسبه برنده" />
+                                    <div class="blnk"></div>
+                                    <%--                        <div class="btnlink" onclick="printDiv('printablediv', 'printablediv2')">چاپ نتیجه</div>--%>
+                                    <asp:Button runat="server" CssClass="btnlink" ID="btnSendPrint" Text="چاپ نتیجه" OnClick="btnSendPrint_OnClick" OnClientClick="document.forms[0].target='_blank';" />
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
         </div>
     </form>
 </body>

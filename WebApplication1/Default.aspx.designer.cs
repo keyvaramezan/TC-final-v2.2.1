@@ -85,13 +85,22 @@ namespace TenderComp {
         protected global::System.Web.UI.WebControls.Button btnEditeTender;
         
         /// <summary>
-        /// UpdatePanel1 control.
+        /// updateProgress1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        protected global::System.Web.UI.UpdateProgress updateProgress1;
+        
+        /// <summary>
+        /// updatePanel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel updatePanel1;
         
         /// <summary>
         /// vldTenderno control.
@@ -373,15 +382,6 @@ namespace TenderComp {
         protected global::System.Web.UI.WebControls.Label lblBaravordCurrency;
         
         /// <summary>
-        /// btnEnter control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEnter;
-        
-        /// <summary>
         /// divSuccess control.
         /// </summary>
         /// <remarks>
@@ -416,6 +416,15 @@ namespace TenderComp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblUnSuccess;
+        
+        /// <summary>
+        /// btnEnter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEnter;
         
         /// <summary>
         /// vldCompanyName control.
@@ -515,6 +524,24 @@ namespace TenderComp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAddcompony;
+        
+        /// <summary>
+        /// updateProgress2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdateProgress updateProgress2;
+        
+        /// <summary>
+        /// updatePanel2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel updatePanel2;
         
         /// <summary>
         /// GrdComponies control.

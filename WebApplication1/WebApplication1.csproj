@@ -173,6 +173,7 @@
     <Content Include="enterTender.aspx" />
     <Content Include="fonts\Dejavu\DejaVu Fonts License.txt" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="images\35.gif" />
     <Content Include="images\bg - Copy.jpg" />
     <Content Include="images\bg.jpg" />
     <Content Include="images\bg.svg" />

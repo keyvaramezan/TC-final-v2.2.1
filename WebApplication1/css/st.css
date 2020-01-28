@@ -340,7 +340,7 @@ select {
     font-size: 174%;
 }
 
-.allboxB .lbl {
+.allboxB .lblSucess {
     margin: 1vh auto;
     width: 41vw;
     height: 3vh;
@@ -349,9 +349,22 @@ select {
     height: 3vh;
 }
 
-    .allboxB .lbl span {
+    .allboxB .lblSucess span {
         text-align: center;
-        color: #13dfe0
+        color: #13dfe0;
+    }
+.allboxB .lblUnSucess {
+    margin: 1vh auto;
+    width: 41vw;
+    height: 3vh;
+    line-height: 24px;
+    background: rgb(130, 130, 130);
+    height: 3vh;
+}
+
+    .allboxB .lblUnSucess span {
+        text-align: center;
+        color:#bf0101;
     }
 
 .side {

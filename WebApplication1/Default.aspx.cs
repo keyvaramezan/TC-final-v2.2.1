@@ -794,16 +794,15 @@ namespace TenderComp
                     }
                     BindGrdTender();
                     Page.ClientScript.RegisterStartupScript(GetType(), "MyScript", "javascript:$(\"#sectionB\").get(0).scrollIntoView()", true);
-                    lblSuccess.Text = "اطلاعات شما با موفقیت ثبت گردید";
+                    divUnSuccess.Visible = false;
                     divSuccess.Visible = true;
-
                 }
                 catch (Exception ex)
                 {
 
                     divSuccess.Visible = false;
                     divUnSuccess.Visible = true;
-                    //Page.ClientScript.RegisterStartupScript(GetType(), "MyScript", "javascript:$(\"#sectionB\").get(0).scrollIntoView()", true);
+                    Page.ClientScript.RegisterStartupScript(GetType(), "MyScript", "javascript:$(\"#sectionB\").get(0).scrollIntoView()", true);
 
                 }
                 finally
@@ -868,27 +867,27 @@ namespace TenderComp
         }
         protected void drpCurrency_OnTextChanged(object sender, EventArgs e)
         {
-            switch (drpCurrency.SelectedValue)
-            {
-                case "2":
-                    divCurrencyPrice.Visible = true;
-                    divCurrencyPrice2.Visible = true;
-                    divBaravordCurrency.Visible = true;
-                    lblCurrencyRiali.Text = "ریالی";
-                    break;
-                case "1":
-                    divCurrencyPrice.Visible = true;
-                    divCurrencyPrice2.Visible = true;
-                    divBaravordCurrency.Visible = false;
-                    lblCurrencyRiali.Text = "ارزی";
-                    break;
-                default:
-                    divBaravordCurrency.Visible = false;
-                    divCurrencyPrice.Visible = false;
-                    divCurrencyPrice2.Visible = false;
-                    break;
-            }
             
+                switch (drpCurrency.SelectedValue)
+                {
+                    case "2":
+                        divCurrencyPrice.Visible = true;
+                        divCurrencyPrice2.Visible = true;
+                        divBaravordCurrency.Visible = true;
+                        lblCurrencyRiali.Text = "ریالی";
+                        break;
+                    case "1":
+                        divCurrencyPrice.Visible = true;
+                        divCurrencyPrice2.Visible = true;
+                        divBaravordCurrency.Visible = false;
+                        lblCurrencyRiali.Text = "ارزی";
+                        break;
+                   default:
+                        divBaravordCurrency.Visible = false;
+                        divCurrencyPrice.Visible = false;
+                        divCurrencyPrice2.Visible = false;
+                        break;
+                }
             Page.ClientScript.RegisterStartupScript(GetType(), "MyScript", "javascript:$(\"#sectionB\").get(0).scrollIntoView()", true);
         }
         protected void btnEditeTender_OnClick(object sender, EventArgs e)
