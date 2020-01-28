@@ -794,6 +794,7 @@ namespace TenderComp
                     }
                     BindGrdTender();
                     Page.ClientScript.RegisterStartupScript(GetType(), "MyScript", "javascript:$(\"#sectionB\").get(0).scrollIntoView()", true);
+                    lblSuccess.Text = "اطلاعات شما با موفقیت ثبت گردید";
                     divSuccess.Visible = true;
 
                 }
