@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="css/st.css" />
     <link href="css/all.min.css" rel="stylesheet"/>
     <link href="css/all.min.css" rel="stylesheet"/>
+    <style>
+        .arang{
+            margin-bottom: 58px;
+        }
+    </style>
 </head>
 <body>
     <form id="frmLogin" runat="server" class="form-group">
@@ -49,8 +54,8 @@
                                     <div class="box btn arang">
                                         <asp:Button ID="btnLogin" runat="server" Text="ورود" OnClick="btnLogin_OnClick" />
                                     </div>
-                                    <div>
-                                        <asp:Label ID="lblFaildLogin" runat="server" ForeColor="#13dfe0" />
+                                    <div ID="divFailedLogin">
+                                        <asp:Label ID="lblFaildLogin" runat="server"/>
                                     </div>
                                 </div>
                             </div>
