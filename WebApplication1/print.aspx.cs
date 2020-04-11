@@ -61,23 +61,25 @@ namespace TenderComp
                 {
                     //List<tblCompony> componies = new List<tblCompony>();
                     oTenderComputDbEntities1 = new TenderComputDBEntities1();
-                    var componies = oTenderComputDbEntities1.tblComponies.Where(i => i.TenderID == tenderid).Select
-                        (i =>
-                        new
-                        {
-                            ID = i.ID,
-                            ComponyName = i.ComponyName,
-                            Price = i.Price,
-                            Comment = i.Comment,
-                            t = i.t,
-                            L = i.L,
-                            IeDiff = i.IeDiff,
-                            X = i.X,
-                            Iswin = i.IsWin
-                        }).OrderBy(i => i.Price).ToList();
-                    GrdComponies.DataSource = componies;
-                    GrdComponies.DataBind();
-                    foreach (GridViewRow row in GrdComponies.Rows)
+                    var oTender = oTenderComputDbEntities1.tblTenders.Where(i => i.ID == tenderid).FirstOrDefault();
+                    
+
+                    List<tblCompony> companies = oTenderComputDbEntities1.tblComponies.Where(i => i.TenderID == tenderid)
+                        .OrderBy(i => i.Price).ToList();
+                    var otblCompony = new tblCompony();
+                    otblCompony.ID = oTender.ID;
+                    otblCompony.ComponyName = "برآورد بهنگام کارفرما";
+                    otblCompony.CurrencyPrice = oTender.CurrencyEstimate;
+                    otblCompony.RialiPrice = oTender.RialiEstimate;
+                    otblCompony.Price = oTender.Estimate;
+
+                    companies.Add(otblCompony);
+
+
+                    GrdComponies.DataSource = companies;
+
+                     GrdComponies.DataBind();
+                   foreach (GridViewRow row in GrdComponies.Rows)
                     {
                         var rowvalue = (Label)row.FindControl("lblIswin");
                         if (rowvalue.Text == "True")

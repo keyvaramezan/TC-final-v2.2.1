@@ -55,7 +55,17 @@
                                         <asp:Label ID="lblName" runat="server" Text='<%# Eval("ComponyName") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="قیمت" ItemStyle-CssClass="gridItem" HeaderStyle-CssClass="gridheader">
+                                 <asp:TemplateField HeaderText="قیمت ارزی" ItemStyle-CssClass="gridItem" HeaderStyle-CssClass="gridheader">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblCurrencyPrice" runat="server" Text='<%#  Eval("CurrencyPrice", "{0:#,0}") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                 <asp:TemplateField HeaderText="قیمت ریالی" ItemStyle-CssClass="gridItem" HeaderStyle-CssClass="gridheader">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblRialiPrice" runat="server" Text='<%#  Eval("RialiPrice", "{0:#,0}") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="قیمت کل" ItemStyle-CssClass="gridItem" HeaderStyle-CssClass="gridheader">
                                     <ItemTemplate>
                                         <asp:Label ID="lblPrice" runat="server" Text='<%#  Eval("Price", "{0:#,0}") %>'></asp:Label>
                                     </ItemTemplate>
