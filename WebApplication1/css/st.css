@@ -49,10 +49,21 @@ input {
     font-size: 130%;
     padding: 3px 2px 0 0
 }
+.editInput{
+    width:100px;
+    margin: 5px;
+    
+}
+.gridtechnical .editInput{
+    width: 50px;
+    margin:10px 0 0 0;
+}
+
 
 :focus {
     outline: -webkit-focus-ring-color auto 0px !important;
 }
+
 
 select {
     border: 1px solid #605d5e;
@@ -590,6 +601,7 @@ select {
     padding: 1px 8px;
     font-size: 80%
 }
+
 
 .blnk {
     width: 15px;

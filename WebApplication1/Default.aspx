@@ -451,7 +451,7 @@
                                                             <asp:Label ID="lblName" runat="server" Text='<%# Eval("ComponyName") %>'></asp:Label>
                                                         </ItemTemplate>
                                                         <EditItemTemplate>
-                                                            <asp:TextBox ID="txtEditName" runat="server" Text='<%# Eval("ComponyName") %>'></asp:TextBox>
+                                                            <asp:TextBox ID="txtEditName" runat="server" Text='<%# Eval("ComponyName") %>' CssClass="editInput"></asp:TextBox>
                                                         </EditItemTemplate>
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="قیمت ارزی" ItemStyle-CssClass="gridprice" HeaderStyle-CssClass="gridheader">
@@ -459,7 +459,7 @@
                                                             <asp:Label ID="lblCurrencyPrice" runat="server" Text='<%#  Eval("CurrencyPrice", "{0:#,0}") %>'></asp:Label>
                                                         </ItemTemplate>
                                                         <EditItemTemplate>
-                                                            <asp:TextBox ID="txtEditCurrencyPriece" runat="server" Text='<%#  Eval("CurrencyPrice", "{0:#,0}") %>'></asp:TextBox>
+                                                            <asp:TextBox ID="txtEditCurrencyPriece" runat="server" Text='<%#  Eval("CurrencyPrice", "{0:#,0}") %>' CssClass="editInput"></asp:TextBox>
                                                         </EditItemTemplate>
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="قیمت ریالی" ItemStyle-CssClass="gridprice" HeaderStyle-CssClass="gridheader">
@@ -467,7 +467,7 @@
                                                             <asp:Label ID="lblRialiPrice" runat="server" Text='<%#  Eval("RialiPrice", "{0:#,0}") %>'></asp:Label>
                                                         </ItemTemplate>
                                                         <EditItemTemplate>
-                                                            <asp:TextBox ID="txtEditRialiPrice" runat="server" Text='<%#  Eval("RialiPrice", "{0:#,0}") %>'></asp:TextBox>
+                                                            <asp:TextBox ID="txtEditRialiPrice" runat="server" Text='<%#  Eval("RialiPrice", "{0:#,0}") %>' CssClass="editInput"></asp:TextBox>
                                                         </EditItemTemplate>
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="جمع ارزی و ریالی" ItemStyle-CssClass="gridprice" HeaderStyle-CssClass="gridheader">
@@ -480,7 +480,7 @@
                                                             <asp:Label ID="lblEmtiazFani" runat="server" Text='<%# Eval("t") %>'></asp:Label>
                                                         </ItemTemplate>
                                                         <EditItemTemplate>
-                                                            <asp:TextBox ID="txtEditEmtiazFani" runat="server" Text='<%# Eval("t") %>'></asp:TextBox>
+                                                            <asp:TextBox ID="txtEditEmtiazFani" runat="server" Text='<%# Eval("t") %>' CssClass="editInput"></asp:TextBox>
                                                             <span>
                                                                 <asp:RequiredFieldValidator ID="vldEditEmtiazFani" ForeColor="#ff8c00" Text="*" ControlToValidate="txtEditEmtiazFani" runat="server" ValidationGroup="3" /></span>
                                                             <span>
@@ -512,7 +512,7 @@
                                                             <asp:Label ID="lblComment" runat="server" Text='<%# Eval("Comment") %>'></asp:Label>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
-                                                    <asp:CommandField ButtonType="Link" ShowEditButton="true" ControlStyle-ForeColor="White" EditText="ویرایش" CancelText="لغو" UpdateText="ذخیره" ValidationGroup="3" />
+                                                    <asp:CommandField ButtonType="Link" ShowEditButton="true" ControlStyle-ForeColor="#2E2E2E" EditText="ویرایش" CancelText="لغو" UpdateText="ذخیره" ValidationGroup="3" />
                                                 </Columns>
                                             </asp:GridView>
                                         </div>
